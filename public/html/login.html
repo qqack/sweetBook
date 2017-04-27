@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chasrset="utf-8">
+	<title>书香网—读懂你的全世界</title>
+	<link rel="Shortcut Icon" href="./../favicon.ico" type="image/x-icon">
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../styles/nstyle.css">
+	<style>
+		.icon-title{
+			margin-top: 70px;
+			margin-left: 500px;
+			margin-right: 0px;
+		}
+		.form-outside{
+			padding-top: 25%;
+			padding-left: 30%;
+		}
+		form{
+			padding: 70px 50px 70px 50px;
+			margin-right: -50px;
+			background-color:rgba(205,205,205,0.7); 
+			
+		}
+	</style>
+
+</head>
+<body>
+	<div class="icon-title">
+		<img class="sweet-icon" src="../imgs/icon.png" alt="书香网" title="书香网">
+		<h1 class="bigger-title">书香网</h1>
+		<h3 class="title-desc">—— 我想读懂你的所有的内心和你的全世界</h3>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 form-outside">
+				<form class="form-horizontal login" method="post" action="/user/login">
+					<div class="select-operation">
+						<span class="login-href"><a href="#">登录</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<span class="signup-href"><a href="#">注册</a></span>
+					</div>
+					<div class="form-content">
+						<div class="form-group-user">
+							<label for="username" class="col-sm-2 control-label">用户名:</label>
+							<div class="user-input">
+								<input type="text" class="form-control" id="username" placeholder="手机号/邮箱/用户名" name="username">
+							</div>
+						</div>
+						<div class="form-group-pwd">
+							<label for="password" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;码:</label>
+							<div class="pwd-input">
+								<input type="password" class="form-control" id="password" placeholder="密码" name="password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 记住我
+									</label>
+								</div>
+								<div class="forgePwd">
+									<a href="#">忘记密码?</a>
+								</div>
+							</div>
+						</div>
+						<div class="form-group-btn">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form class="form-horizontal signUp">
+					<div class="select-operation">
+						<span class="signup-title">注册书香网</span>
+					</div>
+					<div class="form-content">
+						<div class="form-group-user">
+							<label for="username" class="col-sm-2 control-label">用户名:</label>
+							<div class="user-input">
+								<input type="text" class="form-control signupName" placeholder="手机号/邮箱" name="user[username]">
+							</div>
+						</div>
+						<div class="form-group-pwd">
+							<label for="password" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;码:</label>
+							<div class="pwd-input">
+								<input type="password" class="form-control signupPwd" placeholder="密码" name="user[password]">
+							</div>
+						</div>
+						<div class="form-group-btn">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" class="btn btn-default signupSbumit">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+								<button type="button" class="btn btn-default returnLogin">返&nbsp;回&nbsp;登&nbsp;录</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="wrap" id="wrap">
+		<div class="wrapper">
+			<div class="product_list" id="product_list">
+				<div class="product_box shoulei show">
+					<div class="bg_box">
+						<img src="../imgs/bg_shoulei.jpg">
+					</div>
+				</div>
+				<div class="product_box xnet">
+					<div class="bg_box">
+						<img src="../imgs/bg_xnet.jpg">
+					</div>
+				</div>
+				<div class="product_box member">
+					<div class="bg_box">
+						<img src="../imgs/bg_member.jpg">
+					</div>
+				</div>
+				<div class="product_box xkn">
+					<div class="bg_box">
+						<img src="../imgs/bg_xkn.jpg">
+					</div>
+				</div>
+				<div class="product_box xav">
+					<div class="bg_box">
+						<img src="../imgs/bg_xav.jpg">
+					</div>
+				</div>
+			</div>
+			<div class="product_btns" id="product_btns">
+				<div class="content">
+					<div class="btns_area">
+						<div class="btns_box" id="control_box">
+							<a href="#" class="btn_ipr btn_shoulei cur"><span class="ic_shoulei hide_txt png"></span></a>
+							<a href="#" class="btn_xnet"><span class="ic_xnet hide_txt png"></span></a>
+							<a href="#" class="btn_member"><span class="ic_member hide_txt png"></span></a>
+							<a href="#" class="btn_xkn"><span class="ic_xkn hide_txt png"></span></a>
+							<a href="#" class="btn_xav"><span class="ic_xav hide_txt png"></span></a>
+							<span class="ic_line" id="ic_line"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="../scripts/login.js"></script>
+</html>
