@@ -32,7 +32,6 @@ if ('development' === app.get('env')) {
     mongoose.set('debug',true);
 }
 
-
 require('./config/routes')(app);
 
 app.listen(port);
