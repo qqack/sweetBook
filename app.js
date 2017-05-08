@@ -24,6 +24,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
 //打印控制台日志
 if ('development' === app.get('env')) {
     app.set('showStackErro', true);
