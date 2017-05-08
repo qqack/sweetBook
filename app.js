@@ -1,12 +1,12 @@
-var express = require("express");
-var ejs = require('ejs');
-var mongoose = require('mongoose');
-var serveStatic = require('serve-static');
-var session = require('express-session');
-var mongoStore = require('connect-mongo')(session);
-var logger = require('morgan');
-var port = process.env.PORT || 3030;
-var app = express();
+let express = require("express");
+let ejs = require('ejs');
+let mongoose = require('mongoose');
+let serveStatic = require('serve-static');
+let session = require('express-session');
+let mongoStore = require('connect-mongo')(session);
+let logger = require('morgan');
+let port = process.env.PORT || 3030;
+let app = express();
 
 
 mongoose.connect('mongodb://localhost:27017/sweetBook');
@@ -27,7 +27,7 @@ app.use(session({
 //打印控制台日志
 if ('development' === app.get('env')) {
     app.set('showStackErro', true);
-    app.use(logger(':method :url :status'));
+    // app.use(logger(':method :url :status'));
     app.locals.pretty = true;
     mongoose.set('debug',true);
 }

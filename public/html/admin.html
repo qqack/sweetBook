@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>书香网-后台录入页</title>
+    <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 align="center">书香网后台录入页</h1>
+    <div class="row">
+        <form class="form-horizontal col-md-8" method="post" action="/admin/book/new" style="margin-left: 18%">
+            <input type="hidden" name="book[id]" value="book[id]">
+            <div class="form-group">
+                <label for="bookName">书名</label>
+                <input type="text" class="form-control" id="bookName" name="book[bookName]">
+            </div>
+            <div class="form-group">
+                <label for="author">作者</label>
+                <input type="text" class="form-control" id="author" name="book[author]">
+            </div>
+            <div class="form-group">
+                <label for="old_price">原价</label>
+                <input type="text" class="form-control" id="old_price" name="book[old_price]">
+            </div>
+            <div class="form-group">
+                <label for="new_price">现价</label>
+                <input type="text" class="form-control" id="new_price" name="book[new_price]">
+            </div>
+            <div class="form-group">
+                <label for="publish">出版社</label>
+                <input type="text" class="form-control" id="publish" name="book[publish]">
+            </div>
+            <div class="form-group">
+                <label for="publish_time">出版时间</label>
+                <input type="text" class="form-control" id="publish_time" name="book[publish_time]">
+            </div>
+            <div class="form-group">
+                <label for="language">语言</label>
+                <input type="text" class="form-control" id="language" name="book[language]">
+            </div>
+            <div class="form-group">
+                <label for="book_photo">书的照片</label>
+                <input type="text" class="form-control" id="book_photo" name="book[book_photo]">
+            </div>
+            <div class="form-group">
+                <label for="book_tag">书的标签</label>
+                <input type="text" class="form-control" id="book_tag" name="book[book_tag]">
+            </div>
+            <div class="form-group">
+                <label for="book_desc">内容简介</label>
+                <input type="text" class="form-control" id="book_desc" name="book[book_desc]">
+            </div>
+            <div class="form-group">
+                <label for="author_desc">作者简介</label>
+                <input type="text" class="form-control" id="author_desc" name="book[author_desc]">
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

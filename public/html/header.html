@@ -1,0 +1,1348 @@
+ <!-- Header Top -->
+    <div class="header-top compact-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="header-top-left form-inline col-sm-6 col-xs-12 compact-hidden">
+
+
+                    <div class="form-group currencies-block">
+                        <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <span class="icon icon-credit ">{{welcome}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-12 compact-hidden">
+                    <h5 class="tabBlockTitle visible-xs">更多<a class="expander " href="#TabBlock-1"><i class="fa fa-angle-down"></i></a></h5>
+                    <div class="tabBlock" id="TabBlock-1">
+                        <ul class="top-link list-inline">
+                            <li class="account" id="my_account">
+                                <a href="#" title="我的账户" class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span >我的账户</span> <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" id="userContorl">
+                                    <li><a href="/userInfo"><i class="fa fa-user userShow"></i></a></li>
+                                    <li><a href="/logout"><i class="fa fa-pencil-square-o"></i>退出</a></li>
+                                </ul>
+                            </li>
+                            <li class="wishlist"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Wish List (2)"><span>愿望清单(2)</span></a></li>
+                            <li class="checkout"><a href="#" class="top-link-checkout" title="Checkout"><span >查看</span></a></li>
+                            <li class="login"><a href="#" title="Shopping Cart"><span >购物车</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Header Top -->
+
+    <!-- Header center -->
+    <div class="header-center left">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="navbar-logo col-md-3 col-sm-12 col-xs-12">
+                    <a href="index.html"><img src="../imgs/icon.png" title="Your Store" alt="Your Store" /></a>
+                </div>
+                <!-- //end Logo -->
+
+                <!-- Search -->
+                <div id="sosearchpro" class="col-sm-7 search-pro">
+                    <form method="GET" action="index.html">
+                        <div id="search0" class="search input-group">
+                            <div class="select_category filter_type icon-select">
+                                <select class="no-border" name="category_id">
+                                    <option value="0">所有分类</option>
+                                    <option value="78">小说</option>
+                                    <option value="77">影视原版</option>
+                                    <option value="82">工具书</option>
+                                    <option value="82">儿童图书</option>
+                                </select>
+                            </div>
+
+                            <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="搜索宝贝" name="search">
+                            <span class="input-group-btn">
+						<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
+						</span>
+                        </div>
+                        <input type="hidden" name="route" value="搜索宝贝" />
+                    </form>
+                </div>
+                <!-- //end Search -->
+
+                <!-- Secondary menu -->
+                <div class="col-md-2 col-sm-5 col-xs-12 shopping_cart pull-right">
+                    <!--cart-->
+                    <div id="cart" class=" btn-group btn-shopping-cart">
+                        <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
+                            <div class="shopcart">
+                                <span class="handle pull-left"></span>
+                                <span class="title">购物车</span>
+                                <p class="text-shopping-cart cart-total-full">2 商品(s) - ￥1,262.00 </p>
+                            </div>
+                        </a>
+
+                        <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+
+                            <li>
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center" style="width:70px">
+                                            <a href="/product"> <img src="../imgs/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+                                        </td>
+                                        <td class="text-left"> <a class="cart_product_name" href="/product">商品1</a> </td>
+                                        <td class="text-center"> x1 </td>
+                                        <td class="text-center"> ￥1,202.00 </td>
+                                        <td class="text-right">
+                                            <a href="/product" class="fa fa-edit"></a>
+                                        </td>
+                                        <td class="text-right">
+                                            <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" style="width:70px">
+                                            <a href="/product"> <img src="../imgs/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
+                                        </td>
+                                        <td class="text-left"> <a class="cart_product_name" href="/product">商品2</a> </td>
+                                        <td class="text-center"> x1 </td>
+                                        <td class="text-center"> ￥60.00 </td>
+                                        <td class="text-right">
+                                            <a href="/product" class="fa fa-edit"></a>
+                                        </td>
+                                        <td class="text-right">
+                                            <a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-left"><strong>共计</strong>
+                                            </td>
+                                            <td class="text-right">￥1,262.00</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-right"> <a class="btn view-cart" href="#"><i class="fa fa-shopping-cart"></i>查看购物车</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="#"><i class="fa fa-share"></i>结账</a> </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--//cart-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //Header center -->
+
+    <!-- Header Bottom -->
+    <div class="header-bottom">
+        <div class="container">
+            <div class="row">
+
+                <div class="sidebar-menu col-md-3 col-sm-6 col-xs-12 ">
+                    <div class="responsive so-megamenu ">
+                        <div class="so-vertical-menu no-gutter compact-hidden">
+                            <nav class="navbar-default">
+
+                                <div class="container-megamenu vertical open">
+                                    <div id="menuHeading">
+                                        <div class="megamenuToogle-wrapper">
+                                            <div class="megamenuToogle-pattern">
+                                                <div class="container">
+                                                    <div>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                    所有分类
+                                                    <i class="fa pull-right arrow-circle fa-chevron-circle-up"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="navbar-header">
+                                        <button type="button" id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle fa fa-list-alt">
+
+                                        </button>
+                                        所有分类
+                                    </div>
+                                    <div class="vertical-wrapper" >
+                                        <span id="remove-verticalmenu" class="fa fa-times"></span>
+                                        <div class="megamenu-pattern">
+                                            <div class="container">
+                                                <ul class="megamenu">
+                                                    <li class="item-vertical style1 with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/9.png" alt="icon">
+                                                            <span>教育</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">教材</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >研究生/本科</a></li>
+                                                                                                <li><a href="#" >高职高专教材</a></li>
+                                                                                                <li><a  href="#" >中职教材</a></li>
+                                                                                                <li><a href="#" >成人教育教材</a></li>
+                                                                                                <li><a href="#" >经济管理类</a></li>
+                                                                                                <li><a href="#" >工学类</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">工具书</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >汉语工具书</a></li>
+                                                                                                <li><a href="#" >英语工具书</a></li>
+                                                                                                <li><a href="#" >其他语种工具</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">外语</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >英语读物</a></li>
+                                                                                                <li><a href="#" >韩语</a></li>
+                                                                                                <li><a href="#" >对外汉语</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">中小学教辅</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">一年级</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">二年级</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">三年级</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_30';">四年级</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical  with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <span class="label"></span>
+                                                            <img src="../imgs/theme/icons/10.png" alt="icon">
+                                                            <span>电子书&amp;网络文学&amp;阅读器</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <span class="label"></span>
+                                                            <img src="../imgs/theme/icons/3.png" alt="icon">
+                                                            <span>小说</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -44px">
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/2.png" alt="icon">
+                                                            <span>文艺</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -88px" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical css-menu with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+
+                                                            <img src="../imgs/theme/icons/2.png" alt="icon">
+                                                            <span>青春文学 /动漫 · 幽默</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -132px" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/11.png" alt="icon">
+                                                            <span>童书</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -176px" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/4.png" alt="icon">
+                                                            <span>生活</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -220px" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover">
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/5.png" alt="icon">
+                                                            <span>人文社科</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -264px" >
+                                                            <div class="content" >
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-vertical with-sub-menu hover" >
+                                                        <p class="close-menu"></p>
+                                                        <a href="#" class="clearfix">
+                                                            <img src="../imgs/theme/icons/7.png" alt="icon">
+                                                            <span>经管</span>
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <div class="sub-menu" data-subwidth="100" style="margin-top: -308px">
+                                                            <div class="content">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">网络文学</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >男频</a></li>
+                                                                                                <li><a href="#" >女频</a></li>
+                                                                                                <li><a  href="#" >玄幻</a></li>
+                                                                                                <li><a href="#" >奇幻</a></li>
+                                                                                                <li><a href="#" >现代都市</a></li>
+                                                                                                <li><a href="#" >武侠</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">小说</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >侦探</a></li>
+                                                                                                <li><a href="#" >悬疑</a></li>
+                                                                                                <li><a href="#" >娱乐爱情</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">文艺</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >传记</a></li>
+                                                                                                <li><a href="#" >随笔</a></li>
+                                                                                                <li><a href="#" >文学作品集</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="main-menu">考试</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" >学历考试</a></li>
+                                                                                                <li><a href="#" >公职</a></li>
+                                                                                                <li><a href="#" >财税外贸保险</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 static-menu">
+                                                                                <div class="menu">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#"  class="main-menu">经管</a>
+                                                                                            <ul>
+                                                                                                <li><a href="#" onclick="window.location = '18_46';">成功/励志</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">管理</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '24_64';">投资理财</a></li>
+                                                                                                <li><a href="#" onclick="window.location = '18_45';">经济</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Main menu -->
+                <div class="megamenu-hori header-bottom-right  col-md-9 col-sm-6 col-xs-12 ">
+                    <div class="responsive so-megamenu ">
+                        <nav class="navbar-default">
+                            <div class=" container-megamenu  horizontal">
+                                <div class="navbar-header">
+                                    <button type="button" id="show-megamenu" data-toggle="collapse" class="navbar-toggle">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    导航
+                                </div>
+
+                                <div class="megamenu-wrapper">
+                                    <span id="remove-megamenu" class="fa fa-times"></span>
+                                    <div class="megamenu-pattern">
+                                        <div class="container">
+                                            <ul class="megamenu " data-transition="slide" data-animationtime="250">
+                                                <li class="home hover">
+
+                                                    <a href="#">主页</a>
+                                                </li>
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>热门</strong>
+                                                        <span class="label"> Hot</span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>励志</strong>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>成功</strong>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>英文原版书</strong>
+                                                        <span class="label"></span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>期刊&amp;音像</strong>
+                                                        <span class="label"></span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="with-sub-menu hover">
+                                                    <p class="close-menu"></p>
+                                                    <a href="#" class="clearfix">
+                                                        <strong>文艺礼品&amp;工艺品</strong>
+                                                        <span class="label"></span>
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                    <div class="sub-menu" style="width: 100%; right: auto;">
+                                                        <div class="content" >
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">总榜</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="category.html">人类简史：从动物到上帝</a></li>
+                                                                                <li><a href="#">做一个有风骨的女子：不迎合，不媚俗</a></li>
+                                                                                <li><a href="#">未来简史+人类简史（套装版）</a></li>
+                                                                            </ul>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">童书</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="#">加古里子自然大图鉴</a></li>
+                                                                                <li><a href="#">小牛顿科学馆：全新升级版</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">管理</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="#">让大象飞</a></li>
+                                                                                <li><a href="#">金钱永不眠:资本世界的暗流涌动和金融逻辑</a></li>
+                                                                                <li><a href="#">痛点：挖掘小数据满足用户需求</a></li>
+                                                                                <li><a href="#">简化</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="column">
+                                                                        <a href="#" class="title-submenu">励志</a>
+                                                                        <div>
+                                                                            <ul class="row-list">
+                                                                                <li><a href="login.html">你和梦想之间，只差一个行动</a></li>
+                                                                                <li><a href="register.html">优秀的人，从来不会输给情绪</a></li>
+                                                                                <li><a href="#">如何高效记忆</a></li>
+                                                                                <li><a href="#">颠覆平庸：如何成为领先的少数人</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- //end Main menu -->
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navbar switcher -->
+    <!-- //end Navbar switcher -->

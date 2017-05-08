@@ -11,18 +11,18 @@
 	// Cart add remove functions
 	var cart = {
 		'add': function(product_id, quantity) {
-			addProductNotice('Product added to Cart', '<img src="../imgs/demo/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
+			addProductNotice('添加成功', '<img src="../imgs/books/book9.jpg" alt="">', '<h3><a href="#">我喜欢生命本来的样子</a> 添加到 <a href="#">购物车</a>!</h3>', '成功');
 		}
 	}
 
 	var wishlist = {
 		'add': function(product_id) {
-			addProductNotice('Product added to Wishlist', '<img src="../imgs/demo/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
+			addProductNotice('收藏成功', '<img src="../imgs/books/book9.jpg" alt="">', '<h3><a href="#">我喜欢生命本来的样子</a>收藏成功</h3>', '成功');
 		}
 	}
 	var compare = {
 		'add': function(product_id) {
-			addProductNotice('Product added to compare', '<img src="../imgs/demo/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
+			addProductNotice('和其他商品对比', '<img src="../imgs/books/book9.jpg" alt="">', '<h3><a href="#">我喜欢生命本来的样子</a>已加入商品对比</h3>', '成功');
 		}
 	}
 

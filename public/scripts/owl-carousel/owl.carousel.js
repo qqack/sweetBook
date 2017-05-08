@@ -2728,7 +2728,7 @@
         dotData: false,
         dotsSpeed: false,
         dotsContainer: false,
-        controlsClass: 'owl2-controls'
+        controlsClass: 'owl2-controllers'
     }
 
     /**
@@ -2747,7 +2747,7 @@
                 .prop('outerHTML') ];
         }
 
-        // create controls container if needed
+        // create controllers container if needed
         if (!options.navContainer || !options.dotsContainer) {
             this._controls.$container = $('<div>')
                 .addClass(options.controlsClass)

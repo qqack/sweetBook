@@ -1,0 +1,144 @@
+<link id="color_scheme" href="../styles/theme.css" rel="stylesheet">
+<link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css">
+<style>
+    li{
+        list-style-type:none;
+    }
+    .titleUl{
+        margin-top: 50px;
+        padding-bottom: 30px;
+    }
+    .bookImg{
+        width: 120px;
+        height:120px;
+    }
+    .marginAdjust{
+        margin-top:50px;
+    }
+    .quantity{
+        margin-top:45px;
+    }
+    .countLable{
+        margin-left: -70px;
+        margin-top: 10px
+    }
+    .multiPrice{
+        margin-left: 50px;
+    }
+    .settlement{
+        margin-left: 75%;
+    }
+    .settlement button{
+        margin-left: 5%;
+    }
+    .w960{
+        width: 960px;
+        margin: 0 auto;
+    }
+    .shopping_procedure{
+        float: right;
+        width: 634px;
+        height: 36px;
+        background: url(../imgs/shoppingcart/bg1.png) 0 0 no-repeat;
+        font: bold 14px/36px "Microsoft Yahei";
+        color: #646464;
+        margin:0;
+    }
+    .current{
+        color: #fff;
+        width: 206px;
+    }
+    .shopping_procedure span {
+        width: 211px;
+        display: inline-block;
+        text-align: center;
+    }
+    .logo{
+        margin-top: 20px;
+    }
+    .totalCount{
+        color: red;
+        font-weight: bolder;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="w960">
+            <div class="shopping_procedure">
+                <span class="current">我的购物车</span>
+                <span>填写订单</span>
+                <span style="float:right;margin-top: -35px">完成订单</span>
+            </div>
+            <div class="logo">
+                <a href="/index"><img src="../imgs/icon.png" alt="首页图标"></a>
+            </div>
+        </div>
+        <ul class="titleUl">
+            <li class="list-group">
+                <span class="col-md-1" style="margin-left: 20px"> <input type="checkbox">全选</span>
+                <span class="col-md-4" align="center">商品信息</span>
+                <span class="col-md-2" style="margin-left: 35px">单价（元）</span>
+                <span class="col-md-1">数量</span>
+                <span class="col-md-2" style="margin-left: 15px;padding-left: 45px">金额（元）</span>
+                <span class="col-md-2" style="margin-left: -70px;padding-left: 55px">操作</span>
+            </li>
+        </ul>
+        <from class="shoppingFrom col-md-12">
+            <ul class="shoppingUl">
+                <li class="list-group">
+                    <div class="list-group-item" style="height: 150px;">
+                        <span class="col-md-1" style="margin-top:50px;">
+                            <input type="checkbox">
+                        </span>
+                        <a href="#" class="col-md-2" style="margin-left: -50px;">
+                            <img src="../imgs/books/book9.jpg" class="bookImg">
+                        </a>
+                        <span class="col-md-3 marginAdjust"><a href="#">我喜欢生命本来的样子</a></span>
+                        <span class="singlePrice col-md-1 marginAdjust">￥16.00</span>
+                        <div class="option quantity col-md-2">
+                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
+                                <label class="countLable">数量</label>
+                                <input class="form-control countInput" type="text" name="quantity" value="1" style="width: 30px;margin-left: 55px;border-right: 0;">
+                                <span class="input-group-addon product_quantity_down">−</span>
+                                <span class="input-group-addon product_quantity_up">+</span>
+                            </div>
+                        </div>
+                        <span class="multiPrice col-md-1 marginAdjust">￥16.00</span>
+                        <span class="col-md-2 marginAdjust deleteBook" align="center">
+                            <a>删除</a>
+                        </span>
+                    </div>
+                </li><li class="list-group">
+                <div class="list-group-item" style="height: 150px;">
+                        <span class="col-md-1" style="margin-top:50px;">
+                            <input type="checkbox">
+                        </span>
+                    <a href="#" class="col-md-2" style="margin-left: -50px;">
+                        <img src="../imgs/books/book9.jpg" class="bookImg">
+                    </a>
+                    <span class="col-md-3 marginAdjust"><a href="#">我喜欢生命本来的样子</a></span>
+                    <span class="singlePrice col-md-1 marginAdjust">￥16.00</span>
+                    <div class="option quantity col-md-2">
+                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
+                            <label class="countLable">数量</label>
+                            <input class="form-control countInput" type="text" name="quantity" value="1" style="width: 30px;margin-left: 55px;border-right: 0;">
+                            <span class="input-group-addon product_quantity_down">−</span>
+                            <span class="input-group-addon product_quantity_up">+</span>
+                        </div>
+                    </div>
+                    <span class="multiPrice col-md-1 marginAdjust">￥16.00</span>
+                    <span class="col-md-2 marginAdjust deleteBook" align="center">
+                            <a>删除</a>
+                        </span>
+                </div>
+            </li>
+            </ul>
+            <div class="settlement">
+                总计：<span class="totalCount">￥36.00</span>
+                <button class="btn btn-primary settlementBtn">结算</button>
+            </div>
+
+        </from>
+    </div>
+</div>
