@@ -30,4 +30,16 @@ module.exports = function (app) {
     app.post('/admin/book/new', Book.newBookPost);
 
     app.post('/searchBook',Book.searchBook);
+
+    app.get('/shoppingCart',function (req, res) {
+        res.render('shoppingCart', {});
+    });
+
+    app.get('/checkoutB',function (req, res) {
+        res.render('checkoutB', {});
+    });
+
+    app.get('/payResult',function (req, res) {
+        res.render('payResult', {});
+    });
 };

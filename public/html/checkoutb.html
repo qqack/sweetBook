@@ -1,0 +1,157 @@
+
+<link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css">
+<style>
+    li{
+        list-style-type:none;
+    }
+    .settlement button{
+        margin-left: 5%;
+    }
+    .w960{
+        width: 960px;
+        margin: 0 auto;
+    }
+    .shopping_procedure{
+        float: right;
+        width: 634px;
+        height: 36px;
+        background: url(../imgs/shoppingcart/bg2.png) 0 0 no-repeat;
+        font: bold 14px/36px "Microsoft Yahei";
+        color: #646464;
+        margin:0;
+    }
+    .current{
+        color: #fff;
+        width: 206px;
+    }
+    .shopping_procedure span {
+        width: 211px;
+        display: inline-block;
+        text-align: center;
+    }
+    .logo{
+        margin-top: 20px;
+    }
+    .totalCount{
+        color: red;
+        font-weight: bolder;
+    }
+    .receiverInfo ,.payMethod{
+        margin-left: 10%;
+    }
+    .returnCart{
+        margin-left: 80%;
+    }
+    .splitLine{
+        margin-right: 20%;
+        color:black
+    }
+    .payUl{
+        padding-left: 0px;
+    }
+    .payUl li{
+        margin-bottom: 20px;
+    }
+    .payUl li button{
+        width: 20%;
+    }
+    .settlement{
+        background-color: #F0F0F0;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 55%;
+        margin-left: 10%;
+    }
+    .settlement button{
+        margin-left: 5%;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="w960">
+            <div class="shopping_procedure">
+                <span>我的购物车</span>
+                <span class="current">填写订单</span>
+                <span style="float:right;margin-top: -35px">完成订单</span>
+            </div>
+            <div class="logo">
+                <a href="/index"><img src="../imgs/icon.png" alt="首页图标"></a>
+            </div>
+        </div>
+
+        <!--收货人信息-->
+
+        <div class="col-md-12 receiverInfo">
+            <h3>收货人信息</h3>
+            <hr class="splitLine">
+            <!--列表信息-->
+            <div class="receiverUl">
+
+            </div>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newModal">
+                +新增收货地址
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">收货人信息</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="receriverName" class="control-label">收货人姓名:</label>
+                                    <input type="text" class="form-control" id="receriverName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="control-label">电话号码:</label>
+                                    <textarea class="form-control" id="phone"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="control-label">所在地区:</label>
+                                    <textarea class="form-control" id="address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode" class="control-label">邮编:</label>
+                                    <textarea class="form-control" id="zipCode"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--返回购物车-->
+        <a type="button" class="btn btn-primary returnCart" href="/shoppingCart">
+            返回购物车
+        </a>
+
+        <!--支付方式-->
+        <div class="col-md-12 payMethod">
+            <h3>支付方式</h3>
+            <hr class="splitLine">
+            <ul class="payUl">
+                <li><button class="btn btn-info">支付宝支付</button></li>
+                <li><button class="btn btn-success">微信支付</button></li>
+            </ul>
+        </div>
+
+        <!--结算-->
+        <div class="col-md-10 settlement">
+            共<span class="totalCount">2</span>件商品，
+            总计：<span class="totalCount">￥36.00</span>
+            <button class="btn btn-danger" ng-click="toPay"><a href="/payResult">提交订单</a></button>
+        </div>
+
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
