@@ -44,6 +44,9 @@ bookSchema.statics = {
         return this
             .findOne({_id: id})
             .exec(cb);
+    },
+    getPage: function (query,fileds,opt,callback) {
+        return this.find(query, fileds, opt, callback);
     }
 };
 

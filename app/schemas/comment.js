@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema();
-var ObjectId = Schema.Types.ObjectId;
-var CommentSchema = new mongoose.Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema();
+const ObjectId = Schema.Types.ObjectId;
+const CommentSchema = new Schema({
     Book:{type: ObjectId, ref: 'Book'},
     from:{type: ObjectId, ref: 'User'},
     to:{type: ObjectId, ref: 'User'},
@@ -19,7 +19,7 @@ var CommentSchema = new mongoose.Schema({
 });
 
 CommentSchema.pre('save', function (next) {
-    var user = this;
+    let user = this;
     if(this.isNew){
         this.meta.createAt = this.meta.updateAt = Date.now();
     }else{

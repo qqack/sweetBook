@@ -1,6 +1,7 @@
-let  User = require('../app/controllers/user');
-let Book = require('../app/controllers/book');
-let _ = require('underscore');
+const  User = require('../app/controllers/user');
+const Book = require('../app/controllers/book');
+const Books = require('../app/models/book');
+const _ = require('underscore');
 module.exports = function (app) {
     //login page
     app.get('/login', function (req, res) {
@@ -9,12 +10,15 @@ module.exports = function (app) {
 
     //index page
     app.get('/index', function (req, res) {
-        res.render('index', {});
+            res.render('index', {
+                books: books
+            });
     });
 
-    //product page
-    app.get('/product', function (req, res) {
-        res.render('product', {});
+    //book page
+    app.get('/book', function (req, res) {
+        res.render('book', {
+        });
     });
     //signup
     app.post('/user/signup', User.signup);
@@ -42,4 +46,10 @@ module.exports = function (app) {
     app.get('/payResult',function (req, res) {
         res.render('payResult', {});
     });
+
+    app.get('/adminRes',function (req, res) {
+        res.render('adminRes',{});
+    });
+
+    app.get('/getBook',Book.getBook);
 };

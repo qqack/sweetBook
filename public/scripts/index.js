@@ -1,5 +1,5 @@
 (function () {
-    let app = angular.module('sweetBook', ['ngRoute']);
+    let app = angular.module('sweetBook', []);
 
     // 路由
     app.config(['$httpProvider',function ($httpProvider) {
@@ -19,28 +19,42 @@
         }
 
     }]);
+
     app.controller("indexController", function ($scope, $http, $location) {
-        let href = location.href;
-        let matches = href.match(/\?username=(\w+)#?/);
-        if (matches) {
-            $scope.welcome = "欢迎您,"+matches[1];
-        }else{
-            $scope.welcome = "未登录";
-        }
+        let init = function () {
+            let href = location.href;
+            let matches = href.match(/\?username=(\w+)#?/);
+            if (matches) {
+                $scope.welcome = "欢迎您,"+matches[1];
+            }else{
+                $scope.welcome = "未登录";
+            }
+
+            $http({
+                url: '/getBook',
+                method:'get'
+            }).then(function (res) {
+                console.log(res.data);
+            },function (err) {
+                console.log(err);
+            });
+        };
+
 
         $scope.searchBook = function () {
             let bookName = $scope.searchName;
-            console.log(bookName);
             $http({
                 url: '/searchBook',
                 method:'post',
                 data:{bookName:bookName}
-            }).success(function (res) {
-                console.log(res);
-            }).error(function(error) {
-                console.log(error);
+            }).then(function (res) {
+                console.log(res.data);
+            },function (err) {
+                console.log(err);
             });
         }
+
+
     });
 
 })();

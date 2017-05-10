@@ -1,4 +1,4 @@
-let Book = require('../models/book');
+const Book = require('../models/book');
 
 exports.newBook = function (req,res) {
     res.render('admin',{
@@ -38,7 +38,7 @@ exports.newBookPost = function (req,res) {
         if(err){
             console.log(err);
         }
-        res.redirect('/index');
+        res.redirect('/adminRes');
     });
 };
 
@@ -52,5 +52,18 @@ exports.searchBook = function (req,res) {
         else{
             res.json(book);
         }
+    });
+};
+
+exports.getBook = function (req, res) {
+    Book.getPage({},{},{
+        limit: 2,
+        skip: 2
+    },function (err, books) {
+        console.log(err,books);
+        if(err){
+            console.log(err);
+        }
+        res.json(books);
     });
 };
