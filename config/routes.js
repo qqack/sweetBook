@@ -1,6 +1,5 @@
 const  User = require('../app/controllers/user');
 const Book = require('../app/controllers/book');
-const Books = require('../app/models/book');
 const _ = require('underscore');
 module.exports = function (app) {
     //login page
@@ -11,7 +10,6 @@ module.exports = function (app) {
     //index page
     app.get('/index', function (req, res) {
             res.render('index', {
-                books: books
             });
     });
 
@@ -51,5 +49,5 @@ module.exports = function (app) {
         res.render('adminRes',{});
     });
 
-    app.get('/getBook',Book.getBook);
+    app.post('/getBook',Book.getBook);
 };

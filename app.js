@@ -1,15 +1,16 @@
-let express = require("express");
-let ejs = require('ejs');
-let mongoose = require('mongoose');
-let serveStatic = require('serve-static');
-let session = require('express-session');
-let mongoStore = require('connect-mongo')(session);
-let logger = require('morgan');
-let port = process.env.PORT || 3030;
-let app = express();
+const express = require("express");
+const ejs = require('ejs');
+const mongoose = require('mongoose');
+const serveStatic = require('serve-static');
+const session = require('express-session');
+const mongoStore = require('connect-mongo')(session);
+const logger = require('morgan');
+const config = require('./config/config.js');
+const port = process.env.PORT || 3030;
+const app = express();
 
 
-mongoose.connect('mongodb://localhost:27017/sweetBook');
+mongoose.connect(config.connectionstring);
 
 app.set('views','./public/html');
 app.engine('.html', ejs.__express);
@@ -18,7 +19,7 @@ app.use(require('body-parser').urlencoded({extended: true}));
 app.use(session({
     secret: 'sweetBook',
     store: new mongoStore({
-        url: 'mongodb://localhost:27017/sweetBook',
+        url: config.connectionstring,
         collection: 'sessions'
     }),
     resave: false,

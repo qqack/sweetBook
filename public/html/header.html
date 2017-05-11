@@ -1,4 +1,5 @@
- <!-- Header Top -->
+<header id="header" class=" variantleft type_1">
+    <!-- Header Top -->
     <div class="header-top compact-hidden">
         <div class="container">
             <div class="row">
@@ -45,25 +46,23 @@
 
                 <!-- Search -->
                 <div id="sosearchpro" class="col-sm-7 search-pro">
-                    <form method="GET" action="index.html">
-                        <div id="search0" class="search input-group">
-                            <div class="select_category filter_type icon-select">
-                                <select class="no-border" name="category_id">
-                                    <option value="0">所有分类</option>
-                                    <option value="78">小说</option>
-                                    <option value="77">影视原版</option>
-                                    <option value="82">工具书</option>
-                                    <option value="82">儿童图书</option>
-                                </select>
-                            </div>
-
-                            <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="搜索宝贝" name="search">
-                            <span class="input-group-btn">
-						<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
-						</span>
+                    <div id="search0" class="search input-group">
+                        <div class="select_category filter_type icon-select">
+                            <select class="no-border" name="category_id">
+                                <option value="0">所有分类</option>
+                                <!--<option value="78">小说</option>-->
+                                <!--<option value="77">影视原版</option>-->
+                                <!--<option value="82">工具书</option>-->
+                                <!--<option value="82">儿童图书</option>-->
+                            </select>
                         </div>
-                        <input type="hidden" name="route" value="搜索宝贝" />
-                    </form>
+
+                        <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="搜索宝贝" name="search" ng-model="searchName">
+                        <span class="input-group-btn">
+						            <button type="button" class="button-search btn btn-primary" name="submit_search" ng-click="searchBook()"><i class="fa fa-search"></i></button>
+						        </span>
+                    </div>
+                    <input type="hidden" name="route" value="搜索宝贝" />
                 </div>
                 <!-- //end Search -->
 
@@ -86,13 +85,13 @@
                                     <tbody>
                                     <tr>
                                         <td class="text-center" style="width:70px">
-                                            <a href="/product"> <img src="../imgs/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+                                            <a href="/book"> <img src="../imgs/books/book9.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
                                         </td>
-                                        <td class="text-left"> <a class="cart_product_name" href="/product">商品1</a> </td>
+                                        <td class="text-left"> <a class="cart_product_name" href="/book">商品1</a> </td>
                                         <td class="text-center"> x1 </td>
-                                        <td class="text-center"> ￥1,202.00 </td>
+                                        <td class="text-center"> ￥16.00 </td>
                                         <td class="text-right">
-                                            <a href="/product" class="fa fa-edit"></a>
+                                            <a href="/book" class="fa fa-edit"></a>
                                         </td>
                                         <td class="text-right">
                                             <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
@@ -100,13 +99,13 @@
                                     </tr>
                                     <tr>
                                         <td class="text-center" style="width:70px">
-                                            <a href="/product"> <img src="../imgs/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
+                                            <a href="/book"> <img src="../imgs/books/book9.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
                                         </td>
-                                        <td class="text-left"> <a class="cart_product_name" href="/product">商品2</a> </td>
+                                        <td class="text-left"> <a class="cart_product_name" href="/book">商品2</a> </td>
                                         <td class="text-center"> x1 </td>
-                                        <td class="text-center"> ￥60.00 </td>
+                                        <td class="text-center"> ￥16.00 </td>
                                         <td class="text-right">
-                                            <a href="/product" class="fa fa-edit"></a>
+                                            <a href="/book" class="fa fa-edit"></a>
                                         </td>
                                         <td class="text-right">
                                             <a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
@@ -122,11 +121,11 @@
                                         <tr>
                                             <td class="text-left"><strong>共计</strong>
                                             </td>
-                                            <td class="text-right">￥1,262.00</td>
+                                            <td class="text-right">￥32.00</td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <p class="text-right"> <a class="btn view-cart" href="#"><i class="fa fa-shopping-cart"></i>查看购物车</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="#"><i class="fa fa-share"></i>结账</a> </p>
+                                    <p class="text-right"> <a class="btn view-cart" href="/shoppingCart"><i class="fa fa-shopping-cart"></i>查看购物车</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -961,7 +960,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1026,7 +1025,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1091,7 +1090,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1157,7 +1156,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1224,7 +1223,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1290,7 +1289,7 @@
                                                                         <a href="#" class="title-submenu">童书</a>
                                                                         <div>
                                                                             <ul class="row-list">
-                                                                                <li><a href="/product">如果恐龙还活着·想象力与心智成长绘本</a></li>
+                                                                                <li><a href="/book">如果恐龙还活着·想象力与心智成长绘本</a></li>
                                                                                 <li><a href="#">加古里子自然大图鉴</a></li>
                                                                                 <li><a href="#">小牛顿科学馆：全新升级版</a></li>
                                                                             </ul>
@@ -1346,3 +1345,4 @@
 
     <!-- Navbar switcher -->
     <!-- //end Navbar switcher -->
+</header>

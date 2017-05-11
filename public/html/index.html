@@ -29,7 +29,7 @@
     <link href="../styles/themecss/so-listing-tabs.css" rel="stylesheet">
     <link id="color_scheme" href="../styles/theme.css" rel="stylesheet">
     <link href="../styles/responsive.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/angular.js/1.6.4/angular-route.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular-ui-router/1.0.0/angular-ui-router.js"></script>
     <script src="https://cdn.bootcss.com/angular.js/1.6.4/angular.min.js"></script>
 
 
@@ -1476,10 +1476,9 @@
                                         <span class="ltabs-tab-selected">主打</span> <span class="ltabs-tab-arrow">▼</span>
                                         <div class="item-sub-cat">
                                             <ul class="ltabs-tabs cf">
-                                                <li class="ltabs-tab tab-sel" data-category-id="20" data-active-content=".items-category-20"> <span class="ltabs-tab-label">主打</span> </li>
-                                                <li class="ltabs-tab " data-category-id="18" data-active-content=".items-category-18"> <span class="ltabs-tab-label">青春</span> </li>
-                                                <li class="ltabs-tab " data-category-id="25" data-active-content=".items-category-25"> <span class="ltabs-tab-label">小说</span> </li>
-                                                <li class="ltabs-tab " data-category-id="25" data-active-content=".items-category-25"> <span class="ltabs-tab-label">励志</span> </li>
+                                                <li class="ltabs-tab tab-sel" data-category-id="20" data-active-content=".items-category-20" ng-click="getBookList(1)"> <span class="ltabs-tab-label">主打</span> </li>
+                                                <li class="ltabs-tab " data-category-id="18" data-active-content=".items-category-18" ng-click="getBookList(2)"> <span class="ltabs-tab-label">青春</span> </li>
+                                                <li class="ltabs-tab " data-category-id="25" data-active-content=".items-category-25" ng-click="getBookList(3)"> <span class="ltabs-tab-label">小说</span> </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1487,64 +1486,24 @@
                                 </div>
                                 <div class="ltabs-items-container">
                                     <!--Begin Items-->
-                                    <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10">
+                                    <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10" ng-show="showList==1">
                                         <div class="ltabs-items-inner ltabs-slider ">
-                                            <div class="ltabs-item product-layout">
+                                            <div class="ltabs-item product-layout" style="width: 270.75px; margin-right: 20px;" ng-repeat="book in initBooks">
                                                 <div class="product-item-container">
                                                     <div class="left-block">
                                                         <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">我喜欢生命本来的样子</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥16.00</span>
-                                                                <span class="price-old">￥45.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
                                                         </div>
                                                         <!--New Label-->
-                                                        <span class="label label-new">新书</span>
+                                                        <span class="label label-new">主打</span>
                                                         <!--full quick view block-->
                                                         <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
                                                         <!--end full quick view block-->
                                                     </div>
                                                     <div class="right-block">
                                                         <div class="caption">
-                                                            <h4><a href="/book">我们都是孤独的行路人</a></h4>
+                                                            <h4><a href="/book" ng-bind="book.bookName"></a></h4>
                                                             <div class="ratings">
                                                                 <div class="rating-box">
                                                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -1556,84 +1515,7 @@
                                                             </div>
 
                                                             <div class="price">
-                                                                <span class="price-new">￥59.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">微笑向暖，安之若素</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">星星上的人</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
+                                                                <span class="price-new">￥<span ng-bind="book.new_price"></span>.00</span>
                                                             </div>
                                                         </div>
 
@@ -1648,64 +1530,24 @@
                                         </div>
 
                                     </div>
-                                    <div class="ltabs-items items-category-18 grid" data-total="11">
+                                    <div class="ltabs-items items-category-18 grid" data-total="11" ng-show="showList==2">
                                         <div class="ltabs-items-inner ltabs-slider ">
-                                            <div class="ltabs-item product-layout">
+                                            <div class="ltabs-item product-layout" style="width: 270.75px; margin-right: 20px;" ng-repeat="book in bookList">
                                                 <div class="product-item-container">
                                                     <div class="left-block">
                                                         <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">我喜欢生命本来的样子</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥16.00</span>
-                                                                <span class="price-old">￥45.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
                                                         </div>
                                                         <!--New Label-->
-                                                        <span class="label label-new">新书</span>
+                                                        <span class="label label-new">青春</span>
                                                         <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
+                                                        <a class="quickview iframe-link visible-lg" ng-href="">查看详情</a>
                                                         <!--end full quick view block-->
                                                     </div>
                                                     <div class="right-block">
                                                         <div class="caption">
-                                                            <h4><a href="/book">我们都是孤独的行路人</a></h4>
+                                                            <h4><a href="/book" ng-bind="book.bookName"></a></h4>
                                                             <div class="ratings">
                                                                 <div class="rating-box">
                                                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -1717,84 +1559,7 @@
                                                             </div>
 
                                                             <div class="price">
-                                                                <span class="price-new">￥59.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">微笑向暖，安之若素</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">行星上的人</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
+                                                                <span class="price-new">￥<span ng-bind="book.new_price"></span>.00</span>
                                                             </div>
                                                         </div>
 
@@ -1809,64 +1574,24 @@
                                         </div>
 
                                     </div>
-                                    <div class="ltabs-items  items-category-25 grid" data-total="11">
+                                    <div class="ltabs-items items-category-25 grid" data-total="12" ng-show="showList==3">
                                         <div class="ltabs-items-inner ltabs-slider ">
-                                            <div class="ltabs-item product-layout">
+                                            <div class="ltabs-item product-layout" style="width: 270.75px; margin-right: 20px;" ng-repeat="book in initBooks">
                                                 <div class="product-item-container">
                                                     <div class="left-block">
                                                         <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book5.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">我喜欢生命本来的样子</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥16.00</span>
-                                                                <span class="price-old">￥45.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book6.png"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                            <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
                                                         </div>
                                                         <!--New Label-->
-                                                        <span class="label label-new">新书</span>
+                                                        <span class="label label-new">主打</span>
                                                         <!--full quick view block-->
                                                         <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
                                                         <!--end full quick view block-->
                                                     </div>
                                                     <div class="right-block">
                                                         <div class="caption">
-                                                            <h4><a href="/book">我们都是孤独的行路人</a></h4>
+                                                            <h4><a href="/book" ng-bind="book.bookName"></a></h4>
                                                             <div class="ratings">
                                                                 <div class="rating-box">
                                                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -1878,84 +1603,7 @@
                                                             </div>
 
                                                             <div class="price">
-                                                                <span class="price-new">￥59.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book7.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-                                                        <!--Sale Label-->
-                                                        <span class="label label-sale">热卖</span>
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">微笑向暖，安之若素</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="button-group">
-                                                            <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
-                                                            <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                                                            <button class="compare" type="button" data-toggle="tooltip" title="和其他商品比较" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                                                        </div>
-                                                    </div><!-- right block -->
-                                                </div>
-                                            </div>
-                                            <div class="ltabs-item product-layout">
-                                                <div class="product-item-container">
-                                                    <div class="left-block">
-                                                        <div class="product-image-container second_img ">
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                            <img src="../imgs/books/book8.jpg"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
-                                                        </div>
-
-                                                        <!--full quick view block-->
-                                                        <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"  href="/book">查看详情</a>
-                                                        <!--end full quick view block-->
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="caption">
-                                                            <h4><a href="/book">行星上的人</a></h4>
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="price">
-                                                                <span class="price-new">￥97.00</span>
+                                                                <span class="price-new">￥<span ng-bind="book.new_price"></span>.00</span>
                                                             </div>
                                                         </div>
 

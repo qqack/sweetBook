@@ -1,4 +1,5 @@
 const Book = require('../models/book');
+const config = require('../../config/config.js');
 
 exports.newBook = function (req,res) {
     res.render('admin',{
@@ -56,11 +57,27 @@ exports.searchBook = function (req,res) {
 };
 
 exports.getBook = function (req, res) {
-    Book.getPage({},{},{
-        limit: 2,
-        skip: 2
+    let pageSize = config.pageSize;
+    console.log(req.body.page);
+    let page = parseInt(req.body.page) || 1;
+    if (page <= 0) {
+        page = 1;
+    }
+    let skip = (page - 1) * pageSize;
+    Book.getPage({},{
+        "author": 0,
+        "publish":0,
+        "publish_time":0,
+        "language":0,
+        "book_tag":0,
+        "book_desc":0,
+        "author_desc":0,
+        "meta":0,
+        "__v":0
+    },{
+        limit: pageSize,
+        skip:  skip
     },function (err, books) {
-        console.log(err,books);
         if(err){
             console.log(err);
         }
