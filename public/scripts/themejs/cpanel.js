@@ -160,15 +160,15 @@ function headerTypeChange($header){
 			case "header-home4" :
 				url = "header/header4-container.html";
 				type = 'type_4';
-			
+
 
 		}
 
 		$('#header').slideUp(function(){
 			HEADER.removeClass('type_1 type_2 type_3 type_4').addClass(type);
 			
-			$(this).load(url, function(data){
-				$.getScript('js/themejs/so_megamenu.js', function() {
+			// $(this).load(url, function(data){
+				$.getScript('../scripts/themejs/so_megamenu.js', function() {
 					//console.log('Load was performed.');
 				});
 				$(this).slideDown(function(){
@@ -193,7 +193,7 @@ function headerTypeChange($header){
 					else $(collapse_content_selector).removeClass("open").slideUp("normal");
 					e.preventDefault()
 				})
-			});
+			// });
 
 		});
 

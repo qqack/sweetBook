@@ -1,5 +1,4 @@
-<header id="header" class=" variantleft type_1">
-    <!-- Header Top -->
+ <!-- Header Top -->
     <div class="header-top compact-hidden">
         <div class="container">
             <div class="row">
@@ -57,12 +56,11 @@
                             </select>
                         </div>
 
-                        <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="搜索宝贝" name="search" ng-model="searchName">
+                        <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="搜索宝贝" name="search" ng-model="$root.searchName">
                         <span class="input-group-btn">
 						            <button type="button" class="button-search btn btn-primary" name="submit_search" ng-click="searchBook()"><i class="fa fa-search"></i></button>
 						        </span>
                     </div>
-                    <input type="hidden" name="route" value="搜索宝贝" />
                 </div>
                 <!-- //end Search -->
 
@@ -148,7 +146,7 @@
                         <div class="so-vertical-menu no-gutter compact-hidden">
                             <nav class="navbar-default">
 
-                                <div class="container-megamenu vertical open">
+                                <div class="container-megamenu vertical open" ng-class="">
                                     <div id="menuHeading">
                                         <div class="megamenuToogle-wrapper">
                                             <div class="megamenuToogle-pattern">
@@ -1345,4 +1343,3 @@
 
     <!-- Navbar switcher -->
     <!-- //end Navbar switcher -->
-</header>

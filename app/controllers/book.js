@@ -44,9 +44,16 @@ exports.newBookPost = function (req,res) {
 };
 
 exports.searchBook = function (req,res) {
-    let bookName = req.body.bookName;
-    console.log(req.body);
-    Book.findOne({bookName:bookName},function (err, book) {
+    // let bookName = req.body.bookName;
+    let {bookId, bookName} = req.body;
+    let option = {};
+    if (bookId) {
+        option['_id'] = bookId;
+    }
+    if (bookName) {
+        option['bookName'] = bookName;
+    }
+    Book.findOne(option, function (err, book) {
         if(err){
             console.log(err);
         }
@@ -82,5 +89,18 @@ exports.getBook = function (req, res) {
             console.log(err);
         }
         res.json(books);
+    });
+};
+
+exports.getOneBook = function (req, res) {
+    let id = req.body.bookName;
+    console.log(req.body);
+    Book.findOne({bookName:bookName},function (err, book) {
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.json(book);
+        }
     });
 };

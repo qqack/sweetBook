@@ -346,7 +346,7 @@
   bottom: 50px;
   padding: 5px 0;
   overflow: hidden;
-  z-index: 40;
+  z-index: 999;
   position: fixed;
   display: inline;
   text-align: center;

@@ -1,27 +1,55 @@
 (function () {
-    let app = angular.module('sweetBook', []);
+    let app = angular.module('sweetBook', ['ui.router','oc.lazyLoad']);
 
     // 路由
-    app.config(['$httpProvider',function ($httpProvider) {
-        //payload转formdata
-        $httpProvider.defaults.transformRequest = function (obj) {
-            let str = [];
-            for (let p in obj) {
-                if (obj.hasOwnProperty(p)) {
-                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    app.config(
+        ['$stateProvider', '$urlRouterProvider', '$httpProvider',
+            function ($stateProvider, $urlRouterProvider,$httpProvider) {
+                $stateProvider
+                    .state('book', {
+                        url: '/book/?:id',
+                        templateUrl: 'html/book.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load('scripts/viewController/bookController.js');
+                                }]
+                        }
+                    }).state('searchRes',{
+                        url: '/searchRes',
+                        templateUrl: 'html/searchRes.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load('scripts/viewController/searchRes.js');
+                                }]
+                    }
+                    });
+                $urlRouterProvider.otherwise('/index');
+                //payload转formdata
+                $httpProvider.defaults.transformRequest = function (obj) {
+                    let str = [];
+                    for (let p in obj) {
+                        if (obj.hasOwnProperty(p)) {
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        }
+                    }
+                    return str.join("&");
+                };
+
+                $httpProvider.defaults.headers.post = {
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }
-            return str.join("&");
-        };
+        ]
+    );
 
-        $httpProvider.defaults.headers.post = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
+    app.run(function ($rootScope) {
+        $rootScope.searchName = "";
+        $rootScope.showIndex = true;
+    });
 
-    }]);
-
-    app.controller("indexController", function ($scope, $http, $q) {
-
+    app.controller("indexController", function ($scope, $http, $q,$rootScope,$state) {
         let getBooks = function (page) {
             let deferred = $q.defer();
             let promise = deferred.promise;
@@ -65,19 +93,16 @@
         };
 
         $scope.searchBook = function () {
-            let bookName = $scope.searchName;
-            $http({
-                url: '/searchBook',
-                method:'post',
-                data:{bookName:bookName}
-            }).then(function (res) {
-                console.log(res.data);
-            },function (err) {
-                console.log(err);
-            });
+            $rootScope.showIndex = false;
+            $state.go('searchRes');
         };
 
+        $scope.clickBook = function () {
+            console.log('sss');
+            $rootScope.showIndex = false;
+        };
         init();
+
 
     });
 
