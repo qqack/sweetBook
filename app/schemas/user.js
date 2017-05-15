@@ -8,6 +8,13 @@ var UserSchema = new mongoose.Schema({
         type: String
     },
     password: String,
+    shopCart:[{
+        bookId: String,
+        bookNum: Number
+    }],
+    wishList:[{
+        bookId: String
+    }],
     meta:{
         createAt:{
             type:Date,

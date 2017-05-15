@@ -530,7 +530,9 @@
     width: 100%;
     background: #fff;
     z-index: 900;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); }
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    top: 0;
+  }
 
   .navbar-compact .compact-hidden {
     display: none !important; }

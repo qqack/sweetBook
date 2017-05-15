@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="searchController">
     <div class="container">
         <div class="col-md-12">
             <div class="related titleLine products-list grid module ">
@@ -8,21 +8,21 @@
                         <div class="product-item-container">
                             <div class="left-block">
                                 <div class="product-image-container second_img ">
-                                    <img src="../imgs/books/book7.jpg" alt="Apple Cinema 30&quot;"
+                                    <img ng-src="{{book.book_photo}}" alt="Apple Cinema 30&quot;"
                                          class="img-responsive"/>
-                                    <img src="../imgs/books/book7.jpg" alt="Apple Cinema 30&quot;"
+                                    <img ng-src="{{book.book_photo}}" alt="Apple Cinema 30&quot;"
                                          class="img_0 img-responsive"/>
                                 </div>
                                 <!--Sale Label-->
-                                <span class="label label-sale">热卖</span>
+                                <span class="label label-sale" ng-bind="book.book_tag"></span>
                                 <!--full quick view block-->
                                 <a class="quickview iframe-link visible-lg" data-fancybox-type="iframe"
-                                   href="/product">查看详情</a>
+                                   ui-sref="book._id">查看详情</a>
                                 <!--end full quick view block-->
                             </div>
                             <div class="right-block">
                                 <div class="caption">
-                                    <h4><a href="/product">微笑向暖，安之若素</a></h4>
+                                    <h4><a ui-sref="book._id" ng-bind="book.bookName"></a></h4>
                                     <div class="ratings">
                                         <div class="rating-box">
                                                 <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="price">
-                                        <span class="price-new">￥97.00</span>
+                                        <span class="price-new" ng-bind="book.book_newPrice">￥97.00</span>
                                     </div>
                                 </div>
                                 <div class="button-group">
@@ -53,6 +53,20 @@
                             </div><!-- right block -->
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="related titleLine products-list grid module ">
+                <h3 class="modtitle">推荐搜索</h3>
+                <div>
+                    <span>可能感兴趣的搜索：</span>
+                    <a>我喜欢生命本来的样子</a>
+                </div>
+            </div>
+            <div class="related titleLine products-list grid module ">
+                <h3 class="modtitle">推荐搜索</h3>
+                <div>
+                    <span>可能感兴趣的搜索：</span>
+                    <a>我喜欢生命本来的样子</a>
                 </div>
             </div>
         </div>

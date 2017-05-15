@@ -6,6 +6,16 @@
         ['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider,$httpProvider) {
                 $stateProvider
+                    .state('index',{
+                        url:'/index',
+                        templateUrl: 'html/user.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load('scripts/viewController/homeController.js');
+                                }]
+                        }
+                    })
                     .state('book', {
                         url: '/book/?:id',
                         templateUrl: 'html/book.html',
@@ -98,8 +108,13 @@
         };
 
         $scope.clickBook = function () {
-            console.log('sss');
             $rootScope.showIndex = false;
+        };
+
+        $scope.addCart = function (bookId) {
+            let bookId = bookId;
+            let bookNum = 1;
+            //发请求
         };
         init();
 
