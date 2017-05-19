@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var bcryptjs = require('bcryptjs');
-var SALT_WORK_FACTOR = 10;
+let mongoose = require('mongoose');
+let bcryptjs = require('bcryptjs');
+let SALT_WORK_FACTOR = 10;
 
-var UserSchema = new mongoose.Schema({
+let UserSchema = new mongoose.Schema({
     username: {
         unique: true,
         type: String
@@ -28,7 +28,7 @@ var UserSchema = new mongoose.Schema({
 });
 
 UserSchema.pre('save', function (next) {
-    var user = this;
+    let user = this;
     if(this.isNew){
         this.meta.createAt = this.meta.updateAt = Date.now();
     }else{
@@ -68,6 +68,16 @@ UserSchema.statics = {
     findById:function (id,cb) {
         return this.findOne({_id:id})
             .exec(cb)
+    },
+    addCart:function (userId,bookId, bookNum,callback) {
+        let conditions = {_id: userId};
+        let update = {"$push": {shopCart: {bookId,bookNum}}};
+        return this.update(conditions, update, callback);
+    },
+    addWish:function (userId,bookId,callback) {
+        let conditions = {_id: userId};
+        let update = {"$push": {wishList: {bookId}}};
+        return this.update(conditions, update, callback);
     }
 };
 

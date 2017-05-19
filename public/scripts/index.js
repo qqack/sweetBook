@@ -8,7 +8,7 @@
                 $stateProvider
                     .state('index',{
                         url:'/index',
-                        templateUrl: 'html/user.html',
+                        templateUrl: 'html/home.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
@@ -33,7 +33,34 @@
                                 function ($ocLazyLoad) {
                                     return $ocLazyLoad.load('scripts/viewController/searchRes.js');
                                 }]
-                    }
+                        }
+                    }).state('shoppingCart',{
+                    url: '/shoppingCart',
+                    templateUrl: 'html/shoppingCart.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/shoppingCart.js');
+                            }]
+                        }
+                    }).state('checkoutB',{
+                    url: '/checkoutB',
+                    templateUrl: 'html/checkoutB.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/checkoutB.js');
+                            }]
+                        }
+                    }).state('payResult',{
+                    url: '/payResult',
+                    templateUrl: 'html/payResult.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/payResult.js');
+                            }]
+                        }
                     });
                 $urlRouterProvider.otherwise('/index');
                 //payload转formdata
@@ -79,6 +106,7 @@
             let href = location.href;
             let matches = href.match(/\?username=(\w+)#?/);
             $scope.showList = 1;
+            $scope.showList2 = 1;
             if (matches) {
                 $scope.welcome = "欢迎您,"+matches[1];
             }else{
@@ -102,6 +130,21 @@
             });
         };
 
+        $scope.goCart = function () {
+            $state.go('shoppingCart');
+        };
+
+        $scope.getBookList2 = function (page) {
+            getBooks(page).then(function(data){
+                $scope.showList2 = page;
+                $scope.bookList2 = data;
+                console.log(data);
+            }, function(error){
+                console.log(error);
+            });
+        };
+
+
         $scope.searchBook = function () {
             $rootScope.showIndex = false;
             $state.go('searchRes');
@@ -111,14 +154,56 @@
             $rootScope.showIndex = false;
         };
 
-        $scope.addCart = function (bookId) {
-            let bookId = bookId;
+        $scope.addCart = function (id) {
+            let bookId = id;
+            //TODO 判断书的id是否存在，存在就将数量加一
             let bookNum = 1;
             //发请求
+            let addFun = function () {
+                let deferred = $q.defer();
+                let promise = deferred.promise;
+                $http({
+                    url: '/addCart',
+                    method:'post',
+                    data:{bookId:bookId,bookNum:bookNum}
+                }).then(function (res) {
+                    deferred.resolve(res.data);
+                },function (err) {
+                    deferred.reject(err);
+                });
+                return promise;
+            };
+            addFun().then(function(data){
+                console.log(data);
+            }, function(error){
+                console.log(error);
+            });
+        };
+
+        $scope.addWish = function (id) {
+            let bookId = id;
+            //发请求
+            let addFun = function () {
+                let deferred = $q.defer();
+                let promise = deferred.promise;
+                $http({
+                    url: '/addWish',
+                    method:'post',
+                    data:{bookId:bookId}
+                }).then(function (res) {
+                    deferred.resolve(res.data);
+                },function (err) {
+                    deferred.reject(err);
+                });
+                return promise;
+            };
+            addFun().then(function(data){
+                console.log(data);
+            }, function(error){
+                console.log(error);
+            });
         };
         init();
-
-
     });
 
 })();

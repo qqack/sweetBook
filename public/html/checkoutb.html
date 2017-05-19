@@ -66,16 +66,13 @@
         margin-left: 5%;
     }
 </style>
-<div class="container">
+<div class="container" ng-controller="checkoutBCController">
     <div class="row">
         <div class="w960">
             <div class="shopping_procedure">
                 <span>我的购物车</span>
                 <span class="current">填写订单</span>
                 <span style="float:right;margin-top: -35px">完成订单</span>
-            </div>
-            <div class="logo">
-                <a href="/index"><img src="../imgs/icon.png" alt="首页图标"></a>
             </div>
         </div>
 
@@ -130,7 +127,7 @@
         </div>
 
         <!--返回购物车-->
-        <a type="button" class="btn btn-primary returnCart" href="/shoppingCart">
+        <a type="button" class="btn btn-primary returnCart" ui-sref="shoppingCart">
             返回购物车
         </a>
 
@@ -148,9 +145,78 @@
         <div class="col-md-10 settlement">
             共<span class="totalCount">2</span>件商品，
             总计：<span class="totalCount">￥36.00</span>
-            <button class="btn btn-danger" ng-click="toPay"><a href="/payResult">提交订单</a></button>
+            <button class="btn btn-danger" ng-click="toPay()">提交订单</button>
         </div>
 
+    </div>
+
+    <!--智能推荐-->
+    <div class="col-md-12" style="margin-top: 20px">
+        <div class="module tab-slider titleLine">
+            <h3 class="modtitle">猜你喜欢</h3>
+            <div id="so_listing_tabs_2" class="so-listing-tabs first-load module">
+                <div class="loadeding"></div>
+                <div class="ltabs-wrap">
+                    <div class="ltabs-tabs-container" data-delay="300" data-duration="600" data-effect="starwars" data-ajaxurl="#" data-type_source="0">
+                        <!--Begin Tabs-->
+                        <div class="ltabs-tabs-wrap">
+                            <div class="item-sub-cat">
+                                <ul class="ltabs-tabs cf">
+                                    <li class="ltabs-tab tab-sel" data-category-id="20" data-active-content=".items-category-20" ng-click="getBookList2(1)"> <span class="ltabs-tab-label">推荐</span> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Tabs-->
+                    </div>
+                    <div class="ltabs-items-container">
+                        <!--Begin Items-->
+                        <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10" ng-show="showList2==1">
+                            <div class="ltabs-items-inner ltabs-slider ">
+                                <div class="ltabs-item product-layout" style="width: 266px; margin-right: 18px;" ng-repeat="book in initBooks">
+                                    <div class="product-item-container">
+                                        <div class="left-block">
+                                            <div class="product-image-container second_img ">
+                                                <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                            </div>
+                                            <span class="label label-new">推荐</span>
+                                        </div>
+                                        <div class="right-block">
+                                            <div class="caption">
+                                                <h4><a ng-bind="book.bookName" ui-sref="book({id:book._id})" ng-click="clickBook"></a></h4>
+                                                <div class="ratings">
+                                                    <div class="rating-box">
+                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="price">
+                                                    <span class="price-new">￥<span ng-bind="book.new_price"></span>.00</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-group">
+                                                <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');" ng-click="addCart(book._id)"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
+                                                <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');" ng-click="addWish(book._id)"><i class="fa fa-heart"></i></button>
+                                            </div>
+                                        </div><!-- right block -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Items-->
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>

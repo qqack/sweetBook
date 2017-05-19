@@ -61,16 +61,13 @@
         font-weight: bolder;
     }
 </style>
-<div class="container">
+<div class="container" ng-controller="shopCartCController">
     <div class="row">
         <div class="w960">
             <div class="shopping_procedure">
                 <span class="current">我的购物车</span>
                 <span>填写订单</span>
                 <span style="float:right;margin-top: -35px">完成订单</span>
-            </div>
-            <div class="logo">
-                <a href="/index"><img src="../imgs/icon.png" alt="首页图标"></a>
             </div>
         </div>
         <ul class="titleUl">
@@ -85,61 +82,107 @@
         </ul>
         <from class="shoppingFrom col-md-12">
             <ul class="shoppingUl">
-                <li class="list-group">
+                <li class="list-group" ng-repeat="book in shopCarts">
                     <div class="list-group-item" style="height: 150px;">
                         <span class="col-md-1" style="margin-top:50px;">
                             <input type="checkbox">
                         </span>
-                        <a href="#" class="col-md-2" style="margin-left: -50px;">
-                            <img src="../imgs/books/book9.jpg" class="bookImg">
+                        <a ui-sref="book({id:book._id})" class="col-md-2" style="margin-left: -50px;">
+                            <img ng-src="{{book.book_photo}}" class="bookImg">
                         </a>
-                        <span class="col-md-3 marginAdjust"><a href="#">我喜欢生命本来的样子</a></span>
-                        <span class="singlePrice col-md-1 marginAdjust">￥16.00</span>
+                        <span class="col-md-3 marginAdjust"><a ui-sref="book({id:book._id})" ng-bind="book.bookName"></a></span>
+                        <span class="singlePrice col-md-1 marginAdjust" ng-bind="book.new_price">￥16.00</span>
                         <div class="option quantity col-md-2">
                             <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
                                 <label class="countLable">数量</label>
-                                <input class="form-control countInput" type="text" name="quantity" value="1" style="width: 30px;margin-left: 55px;border-right: 0;">
+                                <input class="form-control countInput" type="text" name="quantity" style="width: 30px;margin-left: 55px;border-right: 0;" ng-model="book.num">
                                 <span class="input-group-addon product_quantity_down">−</span>
                                 <span class="input-group-addon product_quantity_up">+</span>
                             </div>
                         </div>
-                        <span class="multiPrice col-md-1 marginAdjust">￥16.00</span>
+                        <span class="multiPrice col-md-1 marginAdjust" >{{book.num*book.new_price}}</span>
                         <span class="col-md-2 marginAdjust deleteBook" align="center">
-                            <a>删除</a>
+                            <a ng-click="delBook(book._id)">删除</a>
                         </span>
                     </div>
-                </li><li class="list-group">
-                <div class="list-group-item" style="height: 150px;">
-                        <span class="col-md-1" style="margin-top:50px;">
-                            <input type="checkbox">
-                        </span>
-                    <a href="#" class="col-md-2" style="margin-left: -50px;">
-                        <img src="../imgs/books/book9.jpg" class="bookImg">
-                    </a>
-                    <span class="col-md-3 marginAdjust">
-                        <a href="#">我喜欢生命本来的样子</a>
-                    </span>
-                    <span class="singlePrice col-md-1 marginAdjust">￥16.00</span>
-                    <div class="option quantity col-md-2">
-                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                            <label class="countLable">数量</label>
-                            <input class="form-control countInput" type="text" name="quantity" value="1" style="width: 30px;margin-left: 55px;border-right: 0;">
-                            <span class="input-group-addon product_quantity_down">−</span>
-                            <span class="input-group-addon product_quantity_up">+</span>
-                        </div>
-                    </div>
-                    <span class="multiPrice col-md-1 marginAdjust">￥16.00</span>
-                    <span class="col-md-2 marginAdjust deleteBook" align="center">
-                            <a>删除</a>
-                        </span>
-                </div>
-            </li>
+                </li>
             </ul>
             <div class="settlement">
-                总计：<span class="totalCount">￥32.00</span>
-                <button class="btn btn-primary settlementBtn"><a href="/checkoutb">结算</a></button>
+                总计：<span class="totalCount" ng-bind=""></span>
+                <button class="btn btn-primary settlementBtn" ng-click="toPay()">结算</button>
+                <button class="btn btn-primary settlementBtn" ng-click="cancelPay()">返回</button>
             </div>
 
         </from>
+
+        <!--智能推荐-->
+        <div class="col-md-12" style="margin-top: 20px">
+            <div class="module tab-slider titleLine">
+                <h3 class="modtitle">猜你喜欢</h3>
+                <div id="so_listing_tabs_2" class="so-listing-tabs first-load module">
+                    <div class="loadeding"></div>
+                    <div class="ltabs-wrap">
+                        <div class="ltabs-tabs-container" data-delay="300" data-duration="600" data-effect="starwars" data-ajaxurl="#" data-type_source="0">
+                            <!--Begin Tabs-->
+                            <div class="ltabs-tabs-wrap">
+                                <div class="item-sub-cat">
+                                    <ul class="ltabs-tabs cf">
+                                        <li class="ltabs-tab tab-sel" data-category-id="20" data-active-content=".items-category-20" ng-click="getBookList2(1)"> <span class="ltabs-tab-label">推荐</span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Tabs-->
+                        </div>
+                        <div class="ltabs-items-container">
+                            <!--Begin Items-->
+                            <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10" ng-show="showList2==1">
+                                <div class="ltabs-items-inner ltabs-slider ">
+                                    <div class="ltabs-item product-layout" style="width: 266px; margin-right: 18px;" ng-repeat="book in initBooks">
+                                        <div class="product-item-container">
+                                            <div class="left-block">
+                                                <div class="product-image-container second_img ">
+                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                </div>
+                                                <span class="label label-new">推荐</span>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h4><a ng-bind="book.bookName" ui-sref="book({id:book._id})" ng-click="clickBook"></a></h4>
+                                                    <div class="ratings">
+                                                        <div class="rating-box">
+                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="price">
+                                                        <span class="price-new">￥<span ng-bind="book.new_price"></span>.00</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="button-group">
+                                                    <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" onclick="cart.add('42', '1');" ng-click="addCart(book._id)"><i class="fa fa-shopping-cart"></i> <span class="">添加到购物车</span></button>
+                                                    <button class="wishlist" type="button" data-toggle="tooltip" title="加入心愿单" onclick="wishlist.add('42');" ng-click="addWish(book._id)"><i class="fa fa-heart"></i></button>
+                                                </div>
+                                            </div><!-- right block -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Items-->
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

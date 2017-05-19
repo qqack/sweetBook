@@ -67,66 +67,14 @@
                 <!-- Secondary menu -->
                 <div class="col-md-2 col-sm-5 col-xs-12 shopping_cart pull-right">
                     <!--cart-->
-                    <div id="cart" class=" btn-group btn-shopping-cart">
-                        <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
+                    <div id="cart" class=" btn-group btn-shopping-cart" ng-click="goCart()">
+                        <a class="top_cart dropdown-toggle" data-toggle="dropdown">
                             <div class="shopcart">
                                 <span class="handle pull-left"></span>
-                                <span class="title">购物车</span>
-                                <p class="text-shopping-cart cart-total-full">2 商品(s) - ￥1,262.00 </p>
+                                <span class="title">查看购物车</span>
+                                <p class="text-shopping-cart cart-total-full">(<span style="color:red">2</span> )个商品(s)</p>
                             </div>
                         </a>
-
-                        <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
-
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <tr>
-                                        <td class="text-center" style="width:70px">
-                                            <a href="/book"> <img src="../imgs/books/book9.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
-                                        </td>
-                                        <td class="text-left"> <a class="cart_product_name" href="/book">商品1</a> </td>
-                                        <td class="text-center"> x1 </td>
-                                        <td class="text-center"> ￥16.00 </td>
-                                        <td class="text-right">
-                                            <a href="/book" class="fa fa-edit"></a>
-                                        </td>
-                                        <td class="text-right">
-                                            <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center" style="width:70px">
-                                            <a href="/book"> <img src="../imgs/books/book9.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
-                                        </td>
-                                        <td class="text-left"> <a class="cart_product_name" href="/book">商品2</a> </td>
-                                        <td class="text-center"> x1 </td>
-                                        <td class="text-center"> ￥16.00 </td>
-                                        <td class="text-right">
-                                            <a href="/book" class="fa fa-edit"></a>
-                                        </td>
-                                        <td class="text-right">
-                                            <a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-left"><strong>共计</strong>
-                                            </td>
-                                            <td class="text-right">￥32.00</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <a class="btn view-cart" href="/shoppingCart"><i class="fa fa-shopping-cart"></i>查看购物车</a></p>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                     <!--//cart-->
                 </div>

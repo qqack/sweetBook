@@ -44,7 +44,6 @@ exports.newBookPost = function (req,res) {
 };
 
 exports.searchBook = function (req,res) {
-    // let bookName = req.body.bookName;
     let {bookId, bookName} = req.body;
     let option = {};
     if (bookId) {

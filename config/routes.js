@@ -50,4 +50,10 @@ module.exports = function (app) {
     });
 
     app.post('/getBook',Book.getBook);
+
+    app.post('/addCart', User.addCart);
+
+    app.post('/addWish', User.addWish);
+
+    app.get('/allCart', User.getCart);
 };
