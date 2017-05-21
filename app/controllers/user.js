@@ -31,19 +31,28 @@ exports.login = function (req, res) {
 exports.signup = function (req, res) {
     let _user = req.body.user;
     let user = new User(_user);
-    User.findOne({username:_user.username},function (err, users) {
-        if(err){
-            console.log(err);
-            res.write({
-                    code: '0001',
-                    msg: '用户名已存在'
-                }
-            );
+    User.findOne({username: _user.username}, function (err) {
+        if (err) {
+            return res.json({
+                code: '1',
+                msg: '用户名已存在',
+            });
         }
-        user.save(function(err, user){
-            if(err){
+
+        user.save(function (err, user) {
+            if (err) {
                 console.log(err);
+                return res.json({
+                    code: '1',
+                    msg: '用户名已存在',
+                });
             }
+
+            req.session.user = user;
+            return res.json({
+                code: '0',
+                msg: '注册成功',
+            });
         });
     });
 };
@@ -108,5 +117,26 @@ exports.getCart = function (req, res) {
                 }
             });
         }
+    });
+};
+
+// 获取用户名
+exports.getUserName = function (req, res) {
+    let user = req.session.user;
+    if (user) {
+        res.json({code: 0, username: user.username});
+    } else {
+        res.json({code: -1});
+    }
+};
+
+// 获取购物车数量
+exports.getCartNum = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    User.findOne({username: user.username}, function (err, user) {
+        res.json({code:0, num: user.shopCart.length});
     });
 };

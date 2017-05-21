@@ -72,7 +72,7 @@
         </div>
         <ul class="titleUl">
             <li class="list-group">
-                <span class="col-md-1" style="margin-left: 20px"> <input type="checkbox">全选</span>
+                <span class="col-md-1" style="margin-left: 20px"> <input type="checkbox" ng-model="all" ng-click="selectAll();">全选</span>
                 <span class="col-md-4" align="center">商品信息</span>
                 <span class="col-md-2" style="margin-left: 35px">单价（元）</span>
                 <span class="col-md-1">数量</span>
@@ -82,10 +82,10 @@
         </ul>
         <from class="shoppingFrom col-md-12">
             <ul class="shoppingUl">
-                <li class="list-group" ng-repeat="book in shopCarts">
+                <li class="list-group" ng-repeat="(index, book) in shopCarts">
                     <div class="list-group-item" style="height: 150px;">
                         <span class="col-md-1" style="margin-top:50px;">
-                            <input type="checkbox">
+                            <input type="checkbox" ng-model="checked[index]" ng-click="select(index);">
                         </span>
                         <a ui-sref="book({id:book._id})" class="col-md-2" style="margin-left: -50px;">
                             <img ng-src="{{book.book_photo}}" class="bookImg">
@@ -96,8 +96,8 @@
                             <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
                                 <label class="countLable">数量</label>
                                 <input class="form-control countInput" type="text" name="quantity" style="width: 30px;margin-left: 55px;border-right: 0;" ng-model="book.num">
-                                <span class="input-group-addon product_quantity_down">−</span>
-                                <span class="input-group-addon product_quantity_up">+</span>
+                                <span class="input-group-addon product_quantity_down" ng-click="add(index, -1)">−</span>
+                                <span class="input-group-addon product_quantity_up" ng-click="add(index, 1)">+</span>
                             </div>
                         </div>
                         <span class="multiPrice col-md-1 marginAdjust" >{{book.num*book.new_price}}</span>
@@ -108,7 +108,7 @@
                 </li>
             </ul>
             <div class="settlement">
-                总计：<span class="totalCount" ng-bind=""></span>
+                总计：<span class="totalCount"><span ng-bind="totalCount"></span>.00</span>
                 <button class="btn btn-primary settlementBtn" ng-click="toPay()">结算</button>
                 <button class="btn btn-primary settlementBtn" ng-click="cancelPay()">返回</button>
             </div>

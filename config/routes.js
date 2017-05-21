@@ -56,4 +56,8 @@ module.exports = function (app) {
     app.post('/addWish', User.addWish);
 
     app.get('/allCart', User.getCart);
+
+    app.get('/username', User.getUserName);
+
+    app.get('/cartNum', User.getCartNum);
 };

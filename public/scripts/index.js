@@ -81,9 +81,17 @@
         ]
     );
 
-    app.run(function ($rootScope) {
+    app.run(function ($rootScope, $http) {
         $rootScope.searchName = "";
         $rootScope.showIndex = true;
+
+        $rootScope.cartNum = 0;
+        $http.get('/cartNum').then(function (res) {
+            let data = res.data;
+            if (data.code === 0) {
+                $rootScope.cartNum = data.num;
+            }
+        });
     });
 
     app.controller("indexController", function ($scope, $http, $q,$rootScope,$state) {
@@ -104,14 +112,16 @@
 
         let init = function () {
             let href = location.href;
-            let matches = href.match(/\?username=(\w+)#?/);
             $scope.showList = 1;
             $scope.showList2 = 1;
-            if (matches) {
-                $scope.welcome = "欢迎您,"+matches[1];
-            }else{
-                $scope.welcome = "未登录";
-            }
+            $http.get('/username').then(function (res) {
+                let data = res.data;
+                if (data.code === 0) {
+                    $scope.welcome = "欢迎您," + data.username;
+                } else {
+                    $scope.welcome = "未登录";
+                }
+            });
             getBooks(1).then(function(data){
                 $scope.initBooks = data;
             }, function(error){
@@ -174,6 +184,8 @@
                 return promise;
             };
             addFun().then(function(data){
+                // 购物车数量+1
+                $rootScope.cartNum++;
                 console.log(data);
             }, function(error){
                 console.log(error);

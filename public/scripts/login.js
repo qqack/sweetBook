@@ -206,11 +206,12 @@
         var username = $('.signupName').val();
         var password = $('.signupPwd').val();
         $.post('/user/signUp',{user:{username:username,password:password}}, function (result) {
-            if(result){
-                console.log(result);
+            if (result.code != 0) {
+                alert(result['msg']);
                 return;
             }else {
-                windows.location.href = '/index';
+                alert(result['msg']);
+                location.href = '/index';
             }
         });
     });
