@@ -87,6 +87,10 @@ exports.addWish = function (req, res) {
 };
 
 exports.getCart = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
     let userId = req.session.user._id;
     User.findById(userId,function (err, user) {
         if(err){

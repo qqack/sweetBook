@@ -185,8 +185,13 @@
             };
             addFun().then(function(data){
                 // 购物车数量+1
-                $rootScope.cartNum++;
                 console.log(data);
+                if (data === '添加成功') {
+                    $rootScope.cartNum++;
+                    addProductNotice('添加成功', '', '', '');
+                } else {
+                    addProductNotice('已存在', '', '', '');
+                }
             }, function(error){
                 console.log(error);
             });

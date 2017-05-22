@@ -76,9 +76,18 @@ UserSchema.statics = {
             .exec(cb)
     },
     addCart:function (userId,bookId, bookNum,callback) {
+        let self = this;
         let conditions = {_id: userId};
         let update = {"$push": {shopCart: {bookId,bookNum}}};
-        return this.update(conditions, update, callback);
+        this.findOne(conditions, function (err, user) {
+            for (let cart of user.shopCart) {
+                if (cart.bookId == bookId) {
+                    return callback('已存在');
+                }
+            }
+            self.update(conditions, update, callback);
+        });
+        // return this.update(conditions, update, callback);
     },
     addWish:function (userId,bookId,callback) {
         let conditions = {_id: userId};
