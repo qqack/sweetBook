@@ -53,6 +53,8 @@ module.exports = function (app) {
 
     app.post('/addCart', User.addCart);
 
+    app.delete('/cart', User.deleteCart);
+
     app.post('/addWish', User.addWish);
 
     app.get('/allCart', User.getCart);

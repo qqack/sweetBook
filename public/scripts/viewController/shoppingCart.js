@@ -15,7 +15,19 @@ angular.module('sweetBook').controller("shopCartCController", function ($scope, 
         console.log(err);
     });
     $scope.toPay = function () {
-        $state.go('checkoutB');
+        let flag = false;
+        for (let i in $scope.shopCarts) {
+            if ($scope.checked[i]) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            $state.go('checkoutB');
+        } else {
+            alert('请选择要购买的书籍');
+        }
+
     };
 
     $scope.selectAll = function () {
@@ -52,5 +64,14 @@ angular.module('sweetBook').controller("shopCartCController", function ($scope, 
             }
         }
         $scope.totalCount = sum;
+    };
+
+    $scope.delBook = function (_id) {
+        console.log(_id);
+        $http.delete('/cart?_id=' + _id).then(function (result) {
+            alert('删除成功');
+            $state.reload();
+            $rootScope.cartNum--;
+        });
     };
 });

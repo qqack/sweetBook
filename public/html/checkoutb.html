@@ -85,6 +85,12 @@
             <div class="receiverUl">
 
             </div>
+            <div class="radio" ng-repeat="(i, item) in transport">
+                <label>
+                    <input type="radio" name="address" ng-checked="i==0">
+                    {{item.name}} {{item.phone}} {{item.address}}
+                </label>
+            </div>
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newModal">
                 +新增收货地址
             </button>
@@ -101,25 +107,21 @@
                             <form>
                                 <div class="form-group">
                                     <label for="receriverName" class="control-label">收货人姓名:</label>
-                                    <input type="text" class="form-control" id="receriverName">
+                                    <input type="text" class="form-control" id="receriverName" ng-model="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="control-label">电话号码:</label>
-                                    <textarea class="form-control" id="phone"></textarea>
+                                    <textarea class="form-control" id="phone" ng-model="phone"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="control-label">所在地区:</label>
-                                    <textarea class="form-control" id="address"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="zipCode" class="control-label">邮编:</label>
-                                    <textarea class="form-control" id="zipCode"></textarea>
+                                    <textarea class="form-control" id="address" ng-model="address"></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="button" class="btn btn-primary">保存</button>
+                            <button type="button" class="btn btn-primary" ng-click="addTransport()">保存</button>
                         </div>
                     </div>
                 </div>
@@ -136,8 +138,8 @@
             <h3>支付方式</h3>
             <hr class="splitLine">
             <ul class="payUl">
-                <li><button class="btn btn-info">支付宝支付</button></li>
-                <li><button class="btn btn-success">微信支付</button></li>
+                <li><input type="radio" name="pay" checked><button class="btn btn-info">支付宝支付</button></li>
+                <li><input type="radio" name="pay"><button class="btn btn-success">微信支付</button></li>
             </ul>
         </div>
 

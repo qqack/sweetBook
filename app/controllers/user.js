@@ -116,11 +116,24 @@ exports.getCart = function (req, res) {
                         bookObjects[i].new_price = books[i]['new_price'];
                         bookObjects[i].book_photo = books[i]['book_photo'];
                         bookObjects[i].num = numArr[books[i]['_id']];
+                        bookObjects[i]._id = books[i]['_id'];
                     }
                     res.json(bookObjects);
                 }
             });
         }
+    });
+};
+
+// 删除购物车
+exports.deleteCart = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    let {_id} = req.query;
+    User.update({username: user.username}, {$pull: {shopCart: {bookId: _id}}}, function (err) {
+        res.json({code: 0});
     });
 };
 
@@ -188,8 +201,26 @@ exports.getWishList = function (req, res) {
         return res.json({code: -1});
     }
     User.findOne({username: user.username}, function (err, user) {
-        console.log(user.wishList);
-        res.json({code:0, wishList: user.wishList});
+        let wishLists = user.wishList;
+        let idArr = [];
+
+        for(let wishList of wishLists){
+            let id = wishList.bookId;
+            idArr.push({_id:id});
+        }
+        if (idArr.length === 0) {
+            return res.json({code: 0, wishList: []});
+        }
+        Book.getPage({"$or":idArr},function (err, books) {
+            let bookObjects = [];
+            for (let i = 0; i < books.length; i++) {
+                bookObjects[i] = {};
+                bookObjects[i].name = books[i]['bookName'];
+                bookObjects[i].photo = books[i]['book_photo'];
+                bookObjects[i]._id = books[i]['_id'];
+            }
+            res.json(bookObjects);
+        });
     });
 };
 
@@ -212,7 +243,7 @@ exports.deleteWishList = function (req, res) {
         return res.json({code: -1});
     }
     let {_id} = req.query;
-    User.update({username: user.username}, {$pull: {wishList: {_id}}}, function (err) {
+    User.update({username: user.username}, {$pull: {wishList: {bookId: _id}}}, function (err) {
         res.json({code: 0});
     });
 };
