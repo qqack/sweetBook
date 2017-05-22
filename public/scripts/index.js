@@ -61,7 +61,16 @@
                                 return $ocLazyLoad.load('scripts/viewController/payResult.js');
                             }]
                         }
-                    });
+                    }).state('wishList',{
+                    url: '/wishList',
+                    templateUrl: 'html/wishList.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/wishList.js');
+                            }]
+                    }
+                });
                 $urlRouterProvider.otherwise('/index');
                 //payload转formdata
                 $httpProvider.defaults.transformRequest = function (obj) {
@@ -84,7 +93,6 @@
     app.run(function ($rootScope, $http) {
         $rootScope.searchName = "";
         $rootScope.showIndex = true;
-
         $rootScope.cartNum = 0;
         $http.get('/cartNum').then(function (res) {
             let data = res.data;
@@ -111,13 +119,13 @@
         };
 
         let init = function () {
-            let href = location.href;
             $scope.showList = 1;
             $scope.showList2 = 1;
             $http.get('/username').then(function (res) {
                 let data = res.data;
                 if (data.code === 0) {
                     $scope.welcome = "欢迎您," + data.username;
+                    $scope.username= data.username;
                 } else {
                     $scope.welcome = "未登录";
                 }

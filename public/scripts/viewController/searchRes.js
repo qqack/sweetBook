@@ -6,7 +6,7 @@ angular.module('sweetBook').controller("searchController", function ($scope, $ht
         method:'post',
         data:{bookName:bookName}
     }).then(function (res) {
-        $scope.book = res.data;
+        $scope.books = res.data;
     },function (err) {
         console.log(err);
     });

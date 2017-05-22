@@ -18,13 +18,12 @@
                             <li class="account" id="my_account">
                                 <a href="#" title="我的账户" class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span >我的账户</span> <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" id="userContorl">
-                                    <li><a href="/userInfo"><i class="fa fa-user userShow"></i></a></li>
+                                    <li><a><i class="fa fa-user userShow" ng-bind="username"></i></a></li>
                                     <li><a href="/logout"><i class="fa fa-pencil-square-o"></i>退出</a></li>
                                 </ul>
                             </li>
-                            <li class="wishlist"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Wish List (2)"><span>愿望清单(2)</span></a></li>
-                            <li class="checkout"><a href="#" class="top-link-checkout" title="Checkout"><span >查看</span></a></li>
-                            <li class="login"><a href="#" title="Shopping Cart"><span >购物车</span></a></li>
+                            <li class="wishlist"><a ui-sref="wishList" id="wishlist-total" class="top-link-wishlist" title="Wish List (2)"><span>愿望清单(2)</span></a></li>
+                            <li class="login"><a ui-sref="shoppingCart" title="Shopping Cart"><span >购物车</span></a></li>
                         </ul>
                     </div>
                 </div>

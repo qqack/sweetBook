@@ -52,13 +52,9 @@ exports.searchBook = function (req,res) {
     if (bookName) {
         option['bookName'] = bookName;
     }
-    Book.findOne(option, function (err, book) {
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.json(book);
-        }
+    console.log(option);
+    Book.getPage({"$or":[option,{author:bookName}]}, function (err, books) {
+            res.json(books);
     });
 };
 

@@ -1,0 +1,57 @@
+<div class="container" ng-controller="wishListController">
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 20px">
+            <div class="module tab-slider titleLine">
+                <h3 class="modtitle">我的心愿单</h3>
+                <div id="so_listing_tabs_2" class="so-listing-tabs first-load module">
+                    <div class="loadeding"></div>
+                    <div class="ltabs-wrap">
+                        <div class="ltabs-tabs-container" data-delay="300" data-duration="600" data-effect="starwars" data-ajaxurl="#" data-type_source="0">
+                            <!--Begin Tabs-->
+                            <div class="ltabs-tabs-wrap">
+                                <div class="item-sub-cat">
+                                    <ul class="ltabs-tabs cf">
+                                        <li class="ltabs-tab tab-sel" data-category-id="20" data-active-content=".items-category-20"> <span class="ltabs-tab-label">所有心愿单</span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Tabs-->
+                        </div>
+                        <div class="ltabs-items-container">
+                            <!--Begin Items-->
+                            <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10">
+                                <div class="ltabs-items-inner ltabs-slider ">
+                                    <div class="ltabs-item product-layout" style="width: 266px; margin-right: 18px;" ng-repeat="book in wishList">
+                                        <div class="product-item-container">
+                                            <div class="left-block">
+                                                <div class="product-image-container second_img ">
+                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                </div>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h4><a ng-bind="book.bookName" ui-sref="book({id:book._id})" ng-click="clickBook"></a></h4>
+                                                </div>
+
+                                                <div class="button-group">
+                                                    <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" ng-click="addCart(book._id)"><i class="fa fa-shopping-cart"></i> <span class="">加入购物车</span></button>
+                                                    <button class="addToCart" type="button" data-toggle="tooltip" title="加入购物车" ng-click="delWish(book._id)"><span class="">移出心愿单</span></button>
+                                                </div>
+                                            </div><!-- right block -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Items-->
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
