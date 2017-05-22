@@ -15,6 +15,12 @@ let UserSchema = new mongoose.Schema({
     wishList:[{
         bookId: String
     }],
+    transport: [{
+        name: String,
+        phone: String,
+        address: String,
+
+    }],
     meta:{
         createAt:{
             type:Date,

@@ -60,4 +60,16 @@ module.exports = function (app) {
     app.get('/username', User.getUserName);
 
     app.get('/cartNum', User.getCartNum);
+
+    app.get('/transport', User.getTransportList);
+
+    app.post('/transport', User.addTransport);
+
+    app.delete('/transport', User.deleteTransport);
+
+    app.get('/wishList', User.getWishList);
+
+    app.post('/wishList', User.addWishList);
+
+    app.delete('/wishList', User.deleteWishList);
 };

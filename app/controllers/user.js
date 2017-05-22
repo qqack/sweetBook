@@ -140,3 +140,75 @@ exports.getCartNum = function (req, res) {
         res.json({code:0, num: user.shopCart.length});
     });
 };
+
+// 获取收货地址列表
+exports.getTransportList = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    User.findOne({username: user.username}, function (err, user) {
+        console.log(user.transport);
+        res.json({code:0, transport: user.transport});
+    });
+};
+
+// 增加收货地址
+exports.addTransport = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    let {name, phone, address} = req.body;
+    User.update({username: user.username}, {"$push": {transport: {name, phone, address}}}, function (err) {
+        res.json({code: 0});
+    });
+};
+
+// 删除收货地址
+exports.deleteTransport = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    let {_id} = req.query;
+    User.update({username: user.username}, {$pull: {transport: {_id}}}, function (err) {
+        res.json({code: 0});
+    });
+};
+
+// 获取愿望单列表
+exports.getWishList = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    User.findOne({username: user.username}, function (err, user) {
+        console.log(user.wishList);
+        res.json({code:0, wishList: user.wishList});
+    });
+};
+
+// 增加愿望单
+exports.addWishList = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    let {bookId} = req.body;
+    User.update({username: user.username}, {"$push": {wishList: {bookId}}}, function (err) {
+        res.json({code: 0});
+    });
+};
+
+// 删除愿望单
+exports.deleteWishList = function (req, res) {
+    let user = req.session.user;
+    if (!user) {
+        return res.json({code: -1});
+    }
+    let {_id} = req.query;
+    User.update({username: user.username}, {$pull: {wishList: {_id}}}, function (err) {
+        res.json({code: 0});
+    });
+};
