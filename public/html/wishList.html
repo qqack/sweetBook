@@ -25,13 +25,13 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container second_img ">
-                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
-                                                    <img ng-src="{{book.book_photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+                                                    <img ng-src="{{book.photo}}"  alt="Apple Cinema 30&quot;" class="img-responsive" />
+                                                    <img ng-src="{{book.photo}}"  alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
                                                 </div>
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a ng-bind="book.bookName" ui-sref="book({id:book._id})" ng-click="clickBook"></a></h4>
+                                                    <h4><a ng-bind="book.name" ui-sref="book({id:book._id})"></a></h4>
                                                 </div>
 
                                                 <div class="button-group">

@@ -52,7 +52,6 @@ exports.searchBook = function (req,res) {
     if (bookName) {
         option['bookName'] = bookName;
     }
-    console.log(option);
     Book.getPage({"$or":[option,{author:bookName}]}, function (err, books) {
             res.json(books);
     });

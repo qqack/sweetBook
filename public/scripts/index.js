@@ -17,7 +17,7 @@
                         }
                     })
                     .state('book', {
-                        url: '/book/?:id',
+                        url: '/book/:id',
                         templateUrl: 'html/book.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
@@ -44,7 +44,7 @@
                             }]
                         }
                     }).state('checkoutB',{
-                    url: '/checkoutB',
+                    url: '/checkoutB/:num/:money',
                     templateUrl: 'html/checkoutB.html',
                     resolve: {
                         deps: ['$ocLazyLoad',

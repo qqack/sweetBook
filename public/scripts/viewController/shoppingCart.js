@@ -16,14 +16,15 @@ angular.module('sweetBook').controller("shopCartCController", function ($scope, 
     });
     $scope.toPay = function () {
         let flag = false;
+        let num = 0;
         for (let i in $scope.shopCarts) {
             if ($scope.checked[i]) {
                 flag = true;
-                break;
+                num++;
             }
         }
         if (flag) {
-            $state.go('checkoutB');
+            $state.go('checkoutB', {money: $scope.totalCount, num: num});
         } else {
             alert('请选择要购买的书籍');
         }
@@ -67,7 +68,6 @@ angular.module('sweetBook').controller("shopCartCController", function ($scope, 
     };
 
     $scope.delBook = function (_id) {
-        console.log(_id);
         $http.delete('/cart?_id=' + _id).then(function (result) {
             alert('删除成功');
             $state.reload();

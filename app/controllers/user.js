@@ -165,7 +165,6 @@ exports.getTransportList = function (req, res) {
         return res.json({code: -1});
     }
     User.findOne({username: user.username}, function (err, user) {
-        console.log(user.transport);
         res.json({code:0, transport: user.transport});
     });
 };

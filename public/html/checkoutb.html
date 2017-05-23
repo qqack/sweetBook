@@ -65,6 +65,16 @@
     .settlement button{
         margin-left: 5%;
     }
+    .addressSpan{
+        margin-right: 30px;
+    }
+    .delAddress{
+        float: right;
+        margin-top: -6px;
+    }
+    .payBtn{
+        margin-left: 10px;
+    }
 </style>
 <div class="container" ng-controller="checkoutBCController">
     <div class="row">
@@ -82,18 +92,22 @@
             <h3>收货人信息</h3>
             <hr class="splitLine">
             <!--列表信息-->
-            <div class="receiverUl">
-
+            <div class="receiverUl col-md-10">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-warning" ng-repeat="(i, item) in transport">
+                        <input type="radio" name="address" ng-checked="i==0">
+                        <span class="addressSpan">{{item.name}}</span>
+                        <span class="addressSpan">{{item.phone}} </span>
+                        <span class="addressSpan">{{item.address}}</span>
+                        <button class="btn btn-danger delAddress" ng-click="delAddress(item._id)">删除</button>
+                    </li>
+                </ul>
             </div>
-            <div class="radio" ng-repeat="(i, item) in transport">
-                <label>
-                    <input type="radio" name="address" ng-checked="i==0">
-                    {{item.name}} {{item.phone}} {{item.address}}
-                </label>
-            </div>
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newModal">
+            <div class="col-md-12">
+            <button type="button" class="btn btn-default " data-toggle="modal" data-target="#newModal">
                 +新增收货地址
             </button>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -107,15 +121,15 @@
                             <form>
                                 <div class="form-group">
                                     <label for="receriverName" class="control-label">收货人姓名:</label>
-                                    <input type="text" class="form-control" id="receriverName" ng-model="name">
+                                    <input type="text" class="form-control" id="receriverName" ng-model="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="control-label">电话号码:</label>
-                                    <textarea class="form-control" id="phone" ng-model="phone"></textarea>
+                                    <input class="form-control" id="phone" ng-model="phone" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="control-label">所在地区:</label>
-                                    <textarea class="form-control" id="address" ng-model="address"></textarea>
+                                    <textarea class="form-control" id="address" ng-model="address" required></textarea>
                                 </div>
                             </form>
                         </div>
@@ -138,15 +152,15 @@
             <h3>支付方式</h3>
             <hr class="splitLine">
             <ul class="payUl">
-                <li><input type="radio" name="pay" checked><button class="btn btn-info">支付宝支付</button></li>
-                <li><input type="radio" name="pay"><button class="btn btn-success">微信支付</button></li>
+                <li><input type="radio" name="pay" checked><button class="btn btn-info payBtn">支付宝支付</button></li>
+                <li><input type="radio" name="pay"><button class="btn btn-success payBtn">微信支付</button></li>
             </ul>
         </div>
 
         <!--结算-->
         <div class="col-md-10 settlement">
-            共<span class="totalCount">2</span>件商品，
-            总计：<span class="totalCount">￥36.00</span>
+            共<span class="totalCount" ng-bind="num"></span>件商品，
+            总计：<span class="totalCount">￥<span ng-bind="money"></span>.00</span>
             <button class="btn btn-danger" ng-click="toPay()">提交订单</button>
         </div>
 
@@ -174,7 +188,7 @@
                         <!--Begin Items-->
                         <div class="ltabs-items ltabs-items-selected items-category-20 grid" data-total="10" ng-show="showList2==1">
                             <div class="ltabs-items-inner ltabs-slider ">
-                                <div class="ltabs-item product-layout" style="width: 266px; margin-right: 18px;" ng-repeat="book in initBooks">
+                                <div class="ltabs-item product-layout" style="width: 264px; margin-right: 13px;" ng-repeat="book in initBooks">
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container second_img ">

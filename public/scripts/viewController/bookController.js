@@ -1,5 +1,6 @@
 angular.module('sweetBook').controller("bookController", function ($scope, $http, $q,$stateParams,$rootScope) {
     $rootScope.showIndex = false;
+    console.log("123");
     let bookId = $stateParams.id;
     let getOneBook = function () {
         let deferred = $q.defer();
@@ -16,7 +17,8 @@ angular.module('sweetBook').controller("bookController", function ($scope, $http
         return promise;
     };
     getOneBook().then(function(data){
-       $scope.book = data;
+        console.log(data);
+       $scope.books = data;
     }, function(error){
         console.log(error);
     });
