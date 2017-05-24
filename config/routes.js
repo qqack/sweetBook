@@ -1,5 +1,6 @@
 const  User = require('../app/controllers/user');
 const Book = require('../app/controllers/book');
+const Recommender =  require('../app/controllers/Recommender');
 const _ = require('underscore');
 module.exports = function (app) {
     //login page
@@ -74,4 +75,10 @@ module.exports = function (app) {
     app.post('/wishList', User.addWishList);
 
     app.delete('/wishList', User.deleteWishList);
+
+    app.post('/addComment', Book.addComment);
+
+    app.get('/userLike',Recommender.getRec);
+
+    app.get('/init',Recommender.init);
 };

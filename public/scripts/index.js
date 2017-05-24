@@ -70,6 +70,24 @@
                                 return $ocLazyLoad.load('scripts/viewController/wishList.js');
                             }]
                     }
+                    }).state('teach',{
+                    url: '/teach',
+                    templateUrl: 'html/categoryHtml/teachMaterial.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/teachController.js');
+                            }]
+                    }
+                }).state('english',{
+                    url: '/english',
+                    templateUrl: 'html/categoryHtml/englishReading.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load('scripts/viewController/english.js');
+                            }]
+                    }
                 });
                 $urlRouterProvider.otherwise('/index');
                 //payload转formdata
@@ -138,6 +156,20 @@
 
         };
 
+        $scope.hotBook = function (bookname){
+        console.log(bookname);
+            $http({
+                url: '/searchBook',
+                method:'post',
+                data:{bookName:bookname}
+            }).then(function (res) {
+                let id= res.data[0]._id;
+                $state.go('book', {id:id});
+            },function (err) {
+                console.log(err);
+            });
+        };
+
         $scope.getBookList = function (page) {
             getBooks(page).then(function(data){
                 $scope.showList = page;
@@ -162,7 +194,6 @@
             });
         };
 
-
         $scope.searchBook = function () {
             $rootScope.showIndex = false;
             $state.go('searchRes');
@@ -174,7 +205,6 @@
 
         $scope.addCart = function (id) {
             let bookId = id;
-            //TODO 判断书的id是否存在，存在就将数量加一
             let bookNum = 1;
             //发请求
             let addFun = function () {

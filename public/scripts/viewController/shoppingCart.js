@@ -14,6 +14,20 @@ angular.module('sweetBook').controller("shopCartCController", function ($scope, 
     },function (err) {
         console.log(err);
     });
+
+    $http({
+        url: '/userLike',
+        method:'get'
+    }).then(function (res) {
+        if (res.data && res.data.code === -1) {
+            location.href='/login';
+            return ;
+        }
+        $scope.books = res.data;
+    },function (err) {
+        console.log(err);
+    });
+
     $scope.toPay = function () {
         let flag = false;
         let num = 0;

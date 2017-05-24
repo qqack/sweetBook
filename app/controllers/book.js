@@ -98,3 +98,17 @@ exports.getOneBook = function (req, res) {
         }
     });
 };
+
+//添加评论
+exports.addComment = function (req, res) {
+    let username = req.session.user.username;
+    let bookId =  req.body.bookId;
+    let comment = req.body.comment;
+    Book.addComment(bookId,username, comment, function (error) {
+        if(error){
+            res.json({code:-1,msg:"评论失败"});
+        }
+        res.json({code:0});
+    });
+
+};

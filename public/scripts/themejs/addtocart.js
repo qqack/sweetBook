@@ -11,13 +11,13 @@
 	// Cart add remove functions
 	var cart = {
 		'add': function(product_id, quantity) {
-			addProductNotice('添加成功', '<img src="../imgs/books/book9.jpg" alt="">', '<h3><a href="#">我喜欢生命本来的样子</a> 添加到 <a href="#">购物车</a>!</h3>', '成功');
+			addProductNotice('添加成功',  '<h3>添加成功</h3>', '成功');
 		}
 	}
 
 	var wishlist = {
 		'add': function(product_id) {
-			addProductNotice('收藏成功', '<img src="../imgs/books/book9.jpg" alt="">', '<h3><a href="#">我喜欢生命本来的样子</a>收藏成功</h3>', '成功');
+			addProductNotice('', '<h3>收藏成功</h3>', '');
 		}
 	}
 	var compare = {

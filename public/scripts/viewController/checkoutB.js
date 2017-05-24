@@ -7,6 +7,19 @@ angular.module('sweetBook').controller("checkoutBCController", function ($scope,
         $http.get('/transport').then(function (result) {
             $scope.transport = result.data.transport;
         });
+
+        $http({
+            url: '/userLike',
+            method:'get'
+        }).then(function (res) {
+            if (res.data && res.data.code === -1) {
+                location.href='/login';
+                return ;
+            }
+            $scope.books = res.data;
+        },function (err) {
+            console.log(err);
+        });
     }
 
     $scope.toPay = function () {

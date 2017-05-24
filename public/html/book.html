@@ -116,29 +116,24 @@
                                 </div>
 
                                 <div class="form-group box-info-product" style="margin-top: 60px;">
-                                    <div class="option quantity">
-                                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                                            <label>数量</label>
-                                            <input class="form-control" type="text" name="quantity"
-                                                   value="1">
-                                            <input type="hidden" name="product_id" value="50">
-                                            <span class="input-group-addon product_quantity_down">−</span>
-                                            <span class="input-group-addon product_quantity_up">+</span>
-                                        </div>
-                                    </div>
+                                    <!--<div class="option quantity">-->
+                                        <!--<div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">-->
+                                            <!--<label>数量</label>-->
+                                            <!--<input class="form-control" type="text" name="quantity"-->
+                                                   <!--value="1">-->
+                                            <!--<input type="hidden" name="product_id" value="50">-->
+                                            <!--<span class="input-group-addon product_quantity_down">−</span>-->
+                                            <!--<span class="input-group-addon product_quantity_up">+</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                     <div class="cart">
-                                        <input type="button" data-toggle="tooltip" title="" value="添加到购物车" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" onclick="cart.add('42', '1');" data-original-title="添加到购物车">
+                                        <input type="button" data-toggle="tooltip" title="" value="添加到购物车" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg"  data-original-title="添加到购物车" ng-click="addCart(book._id)">
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="wishlist">
                                                 <a class="icon" data-toggle="tooltip" title=""
-                                                   onclick="wishlist.add('50');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i>
-                                                </a>
-                                            </li>
-                                            <li class="compare">
-                                                <a class="icon" data-toggle="tooltip" title=""
-                                                   onclick="compare.add('50');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i>
+                                                   onclick="wishlist.add('50');" data-original-title="添加心愿单" ng-click="addWish(book._id)"><i class="fa fa-heart"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -165,17 +160,16 @@
                                     <form>
                                         <div id="review">
                                             <table class="table table-striped table-bordered">
-                                                <tbody>
+                                                <tbody ng-repeat="comm in book.comment">
                                                 <tr>
-                                                    <td style="width: 50%;"><strong>球球</strong></td>
-                                                    <td class="text-right">2017/04/30</td>
+                                                    <td style="width: 50%;"><strong ng-bind="comm.username"></strong></td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <p>这是一本好书，值得推荐！</p>
+                                                        <p ng-bind="comm.comment"><span></span></p>
                                                         <div class="ratings">
                                                             <div class="rating-box">
-                                            <span class="fa fa-stack"><i
+                                                     <span class="fa fa-stack"><i
                                                     class="fa fa-star fa-stack-1x"></i><i
                                                     class="fa fa-star-o fa-stack-1x"></i></span>
                                                                 <span class="fa fa-stack"><i
@@ -199,32 +193,12 @@
                                         </div>
                                         <h2 id="review-title">写评论</h2>
                                         <div class="contacts-form">
-                                            <div class="form-group"><span class="icon icon-user"></span>
-                                                <input type="text" name="name" class="form-control" value="姓名"
-                                                       onblur="if (this.value == '') {this.value = '姓名';}"
-                                                       onfocus="if(this.value == '姓名') {this.value = '';}">
-                                            </div>
                                             <div class="form-group"><span class="icon icon-bubbles-2"></span>
-                                                <textarea class="form-control" name="text"
-                                                          onblur="if (this.value == '') {this.value = '评论内容';}"
-                                                          onfocus="if(this.value == '评论内容') {this.value = '';}">评论内容</textarea>
+                                                <input class="form-control" name="text" ng-model="commentMain">
                                             </div>
-
-                                            <div class="form-group">
-                                                <b>评分</b> <span>差</span>&nbsp;
-                                                <input type="radio" name="rating" value="1"> &nbsp;
-                                                <input type="radio" name="rating"
-                                                       value="2"> &nbsp;
-                                                <input type="radio" name="rating"
-                                                       value="3"> &nbsp;
-                                                <input type="radio" name="rating"
-                                                       value="4"> &nbsp;
-                                                <input type="radio" name="rating"
-                                                       value="5"> &nbsp;<span>棒</span>
-
+                                            <div class="buttons clearfix">
+                                                <a id="button-review" class="btn buttonGray" ng-click="addComment(book._id,commentMain)">发表评论</a>
                                             </div>
-                                            <div class="buttons clearfix"><a id="button-review"
-                                                                             class="btn buttonGray">发表评论</a></div>
                                         </div>
                                     </form>
                                 </div>

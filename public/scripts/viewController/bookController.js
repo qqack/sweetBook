@@ -1,6 +1,5 @@
-angular.module('sweetBook').controller("bookController", function ($scope, $http, $q,$stateParams,$rootScope) {
+angular.module('sweetBook').controller("bookController", function ($scope, $http, $q,$stateParams,$rootScope,$state) {
     $rootScope.showIndex = false;
-    console.log("123");
     let bookId = $stateParams.id;
     let getOneBook = function () {
         let deferred = $q.defer();
@@ -17,9 +16,29 @@ angular.module('sweetBook').controller("bookController", function ($scope, $http
         return promise;
     };
     getOneBook().then(function(data){
-        console.log(data);
        $scope.books = data;
+       console.log(data);
     }, function(error){
         console.log(error);
     });
+
+    $scope.addComment = function(id,comment){
+        console.log(id);
+        if(comment === undefined || comment === null ||comment === "" ){
+            alert("评论内容不能为空");
+            return;
+        }
+        $http({
+            url: '/addComment',
+            method:'post',
+            data:{bookId:id,comment:comment}
+        }).then(function (res) {
+            if(res.data.code == 0){
+                alert("评论成功");
+                $state.reload();
+            }
+        },function (err) {
+            console.log(err);
+        });
+    }
 });

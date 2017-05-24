@@ -11,6 +11,10 @@ let bookSchema = new mongoose.Schema({
     book_tag:String,
     book_desc:String,
     author_desc:String,
+    comment:[{
+        username: String,
+        comment: String
+    }],
     meta: {
         createAt: {
             type: Date,
@@ -47,6 +51,11 @@ bookSchema.statics = {
     },
     getPage: function (query,fileds,opt,callback) {
         return this.find(query, fileds, opt, callback);
+    },
+    addComment:function (bookId,username,comment,callback) {
+        let conditions = {_id: bookId};
+        let update = {"$push": {comment: {username,comment}}};
+        return this.update(conditions, update, callback);
     }
 };
 

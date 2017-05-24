@@ -193,7 +193,7 @@ exports.deleteTransport = function (req, res) {
     });
 };
 
-// 获取愿望单列表
+// 获取愿望单列表a
 exports.getWishList = function (req, res) {
     let user = req.session.user;
     if (!user) {
